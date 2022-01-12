@@ -1,6 +1,6 @@
 <template>
-  <span class="fa-stack fa-4x">
-    <i class="fas fa-square fa-stack-2x text-black opacity-0"></i>
+  <span class="fa-stack -mb-2" :class="size">
+    <i class="fas fa-square fa-stack-2x" :class="bg"></i>
     <i class="fat fa-stack-1x text-amber-500" :class="'fa-' + icon"></i>
   </span>
 </template>
@@ -11,6 +11,14 @@ export default {
     icon: {
       type: String,
       default: 'terminal'
+    },
+    size: {
+      type: String,
+      default: 'fa-4x'
+    },
+    bg: {
+      type: String,
+      default: 'text-black/0'
     }
   }
 }

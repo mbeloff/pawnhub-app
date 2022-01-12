@@ -3,10 +3,10 @@
 <div class="w-full overflow-x-hidden">
   <div class="bg-stone-900/80 w-full h-20 shadow-xl border-b border-stone-100/5">
     <div class="flex justify-between container px-4 mx-auto h-full items-center">
-      <img src="../assets/pawnhub_logo.svg" alt="" class="w-32">
-      <div class="flex items-center gap-5">
-        <a href="" class="text-xl text-amber-500 font-black min-w-max">1800 123 456</a>
-      <button @click="hide = !hide" class="bg-stone-700 w-10 h-10 rounded md:hidden"><i class="far fa-bars fa-fw fa-2x text-amber-500"></i></button>
+      <img src="../assets/pawnhub_logo.svg" alt="" class="w-24 mr-2">
+      <div class="flex items-center">
+        <a href="" class="text-lg text-amber-500 font-black min-w-max">1800 123 456</a>
+      <icon-stack class="md:hidden" @click="hide = !hide" :icon="'bars'" :size="'fa-2x'" :bg="'text-black/30'"></icon-stack>
       </div>
       
     </div>
@@ -28,12 +28,14 @@
 </template>
 
 <script>
+import IconStack from "@/components/IconStack.vue"
 export default {
-data() {
-  return {
-    hide: true
+  components: {IconStack},
+  data() {
+    return {
+      hide: true
+    }
   }
-}
 }
 </script>
 
