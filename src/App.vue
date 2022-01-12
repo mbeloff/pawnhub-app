@@ -2,7 +2,7 @@
 <template>
   <div class="bg-stone-900">     
     <nav-bar></nav-bar>
-    <main>
+    <main class="pt-20">
       <router-view />
     </main>
     <foot-bar></foot-bar>
@@ -14,7 +14,7 @@
 import NavBar from '@/components/NavBar.vue'
 import FootBar from '@/components/Footer.vue'
 export default {
-  components: {NavBar, FootBar}
+  components: {NavBar, FootBar},
 }
 </script>
 

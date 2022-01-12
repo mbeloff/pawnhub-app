@@ -1,23 +1,25 @@
 <template>
   <div>
-    <div class="content-box flex flex-col md:flex-row py-16 lg:py-20 items-center gap-10">
-      <div class="w-full md:w-1/3">
-        <img class="object-fill w-full h-full" src="https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641957716/ph/hundreds.webp" alt="">
+    <div class="content-box flex flex-col md:flex-row py-16 lg:py-20 content-stretch gap-10">
+      <div class="w-full md:w-1/3 py-5">
+        <img class="object-cover w-full h-full" src="https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641957716/ph/hundreds.webp" alt="">
       </div>
-      <div class="lg:flex lg:items-center lg:justify-between gap-10">
-        <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10">
+      <div class="lg:flex lg:items-center lg:justify-between gap-10 relative py-5">
+        
+        <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
           Need Cash Fast?
           <br />
           <span class="text-orange-600">Pawn your vehicle for quick and easy cash loans</span>
         </h2>
-        <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0">
-          <div class="inline-flex rounded-md shadow">
-            <router-link to="/about" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none">Apply Online</router-link>
-          </div>
+        <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0 z-20">
+          <open-modal>
+            <span class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-300/30">Apply Online</span>
+          </open-modal>
         </div>
+        <div class="absolute w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-10 z-10"></div>
       </div>
     </div>
-    <div class="bg-stone-900">
+    <div class="bg-stone-800">
       <div class="content-box text-stone-100 flex flex-col gap-3">
       <h1 class="text-amber-500 font-medium text-2xl tracking-wider">
         For the money you need today
@@ -52,9 +54,10 @@
 
 <script>
   import IconStack from '@/components/IconStack.vue'
+  import OpenModal from '@/components/Modal.vue'
   export default {
     components: {
-      IconStack
+      IconStack, OpenModal
     },
     data() {
       return {
@@ -97,6 +100,6 @@
   }
 
   .car-bg {
-    background-image: url(https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641966858/ph/vehicle_outline.png);
+    background-image: url(https://res.cloudinary.com/dg5ybbkbh/image/upload/c_crop,g_north,h_279,w_1000/v1641966858/ph/vehicle_outline.png);
   }
 </style>

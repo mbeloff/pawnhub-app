@@ -1,5 +1,5 @@
 <template>
-<header class="sticky top-0 backdrop-blur z-50">
+<header id="nav" class="fixed w-full top-0 backdrop-blur z-50">
 <div class="w-full overflow-x-hidden">
   <div class="bg-stone-900/80 w-full h-20 shadow-xl border-b border-stone-100/5">
     <div class="flex justify-between container px-4 mx-auto h-full items-center">
@@ -18,7 +18,7 @@
         <a class="nav-item" href="">About</a>
         <a class="nav-item" href="">Cash for Cars</a>
         <a class="nav-item" href="">FAQ's</a>
-        <a class="nav-item" href="">Apply Online</a>
+        <a class="nav-item" href="" @click="$emit('OpenForm')">Apply Online</a>
         <a class="nav-item" href="">Contact</a>
       </div>
     </div>
