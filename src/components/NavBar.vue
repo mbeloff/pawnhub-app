@@ -1,7 +1,7 @@
 <template>
-<header id="nav" class="fixed w-full top-0 backdrop-blur z-50">
+<header id="nav" class="fixed w-full top-0 backdrop-blur z-50 shadow">
 <div class="w-full overflow-x-hidden">
-  <div class="bg-stone-900/80 w-full h-20 shadow-xl border-b border-stone-100/5">
+  <div class="bg-stone-800/80 w-full h-20 shadow-xl border-b border-stone-100/5">
     <div class="flex justify-between container px-4 mx-auto h-full items-center">
       <img src="../assets/pawnhub_logo.svg" alt="" class="w-24 mr-2">
       <div class="flex items-center">
@@ -18,7 +18,7 @@
         <a class="nav-item" href="">About</a>
         <a class="nav-item" href="">Cash for Cars</a>
         <a class="nav-item" href="">FAQ's</a>
-        <a class="nav-item" href="" @click="$emit('OpenForm')">Apply Online</a>
+        <open-modal><span class="nav-item">Apply Now</span></open-modal>
         <a class="nav-item" href="">Contact</a>
       </div>
     </div>
@@ -29,8 +29,9 @@
 
 <script>
 import IconStack from "@/components/IconStack.vue"
+import OpenModal from '@/components/Modal.vue'
 export default {
-  components: {IconStack},
+  components: {IconStack, OpenModal},
   data() {
     return {
       hide: true

@@ -13,10 +13,10 @@
         </h2>
         <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0 z-20">
           <open-modal>
-            <span class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-300/30">Apply Online</span>
+            <span class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/50">Apply Online</span>
           </open-modal>
         </div>
-        <div class="absolute w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-10 z-10"></div>
+        <div class="absolute w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-5 z-10"></div>
       </div>
     </div>
     <div class="bg-stone-800">

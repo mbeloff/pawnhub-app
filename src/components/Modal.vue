@@ -37,21 +37,20 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+              class="inline-block w-full max-w-md py-6 px-5 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded"
             >
               <DialogTitle
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                Payment successful
+                Online Application
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
-                  Your payment has been successfully submitted. We’ve sent you
-                  an email with all of the details of your order.
+                  Submit for approval and cash today.
                 </p>
               </div>
-
+              <form-apply></form-apply>
               <div class="mt-4">
                 <button
                   type="button"
@@ -78,7 +77,7 @@ import {
   DialogOverlay,
   DialogTitle,
 } from '@headlessui/vue'
-
+import FormApply from '@/components/FormApply.vue'
 export default {
   components: {
     TransitionRoot,
@@ -86,37 +85,32 @@ export default {
     Dialog,
     DialogOverlay,
     DialogTitle,
+    FormApply
   },
 
   setup() {
-    const isOpen = ref(true)
+    const isOpen = ref(false)
 
     return {
       isOpen,
       closeModal() {
         isOpen.value = false
       },
-      openModal() {
+      openModal() {       
         isOpen.value = true
       },
     }
   },
 
-  // watch: {
-  //   'isOpen': function(val) {
-  //     let nav = document.getElementById('nav')
-  //     if (val == true) {
-  //       document.body.style.overflowY = 'hidden'
-  //       nav.classList.remove('sticky');
-  //       nav.classList.add('fixed');
-  //     } else {
-  //       document.body.style.overflowY = 'auto'
-  //       nav.classList.add('sticky');
-  //       nav.classList.remove('fixed')
-  //     }
-  //       ;
-  //   }
-  // }
+  watch: {
+    'isOpen': function(val) {
+      if (val == true) {
+        document.body.style.overflowY = 'hidden'
+      } else {
+        document.body.style.overflowY = 'auto'
+      }
+    }
+  },
 }
 </script>
 
