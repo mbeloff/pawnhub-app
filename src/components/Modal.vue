@@ -41,25 +41,26 @@
             >
               <DialogTitle
                 as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
+                class="text-xl font-medium leading-6 flex items-center justify-between text-gray-900"
               >
                 Online Application
+
+                <button
+                  type="button"
+                  class="inline-flex justify-center p-2 px-3 bg-orange-100 border border-transparent rounded-md hover:bg-orange-500 text-orange-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  @click="closeModal"
+                >
+                  <i class="far fa-times"></i>
+                </button>
+
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
                   Submit for approval and cash today.
                 </p>
               </div>
-              <form-apply></form-apply>
-              <div class="mt-4">
-                <button
-                  type="button"
-                  class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="closeModal"
-                >
-                  Got it, thanks!
-                </button>
-              </div>
+                <form-apply></form-apply>              
+              
             </div>
           </TransitionChild>
         </div>

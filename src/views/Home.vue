@@ -16,26 +16,26 @@
             <span class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/50">Apply Online</span>
           </open-modal>
         </div>
-        <div class="absolute w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-5 z-10"></div>
+        <div class="absolute top-0 w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-5 z-10 pointer-events-none"></div>
       </div>
     </div>
     <div class="bg-stone-800">
       <div class="content-box text-stone-100 flex flex-col gap-3">
       <h1 class="text-amber-500 font-medium text-2xl tracking-wider">
-        For the money you need today
+        For the money you need <span class="italic font-bold">today</span>
       </h1>
       <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or expenses?</p>
       <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Won a contract and need to purchase materials or hire more staff?</p>
       <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a commission payment but have bills to pay?</p>
       <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Expecting a tax return and need cash now?</p>
       <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Don't want to sell any assets, but need to pay overdue invoices?</p>
-      <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle. With your car held securely by us for the duration of the loan.</p>
+      <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
     </div>
     </div>
     
 
     <div class="svg-back relative">
-      <div class="absolute w-full h-full bg-stone-900/60"></div>
+      <div class="absolute w-full h-full bg-stone-900/80"></div>
       <div class="content-box grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div v-for="card in cards" :key="card.title" class="backdrop-blur-sm bg-black/20 rounded-lg flex items-center flex-col text-stone-100 py-2">
           <icon-stack :icon="card.icon"></icon-stack>

@@ -5,7 +5,7 @@
     </select>
 
     <label :for="name" 
-    class="px-1 pointer-events-none absolute left-0 -top-3.5 text-gray-400 text-xs transition-all peer-focus:-top-3.5 peer-focus:text-orange-400 peer-focus:text-xs" :class="{'text-gray-500 top-2' : !value}">{{label}}</label>
+    class="px-1 pointer-events-none absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-focus:-top-3.5 peer-focus:text-orange-400 peer-focus:text-xs" :class="{'text-gray-500 top-2' : !value}">{{label}}</label>
    
     <p class="invisible h-8 transition-height peer-invalid:visible peer-invalid:h-14 text-sm text-orange-500">Please select a {{label.toLowerCase()}}</p>
   </div>
