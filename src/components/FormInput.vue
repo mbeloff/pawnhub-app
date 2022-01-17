@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
 
-    <input :id="name" :name="name" :type="type"
+    <input :id="name" :name="name" :type="type" :required="req"
     class="peer h-8 w-full border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 placeholder-transparent focus:outline-none  focus:ring-transparent px-1" placeholder=" " />
 
     <label :for="name" 
@@ -24,8 +24,9 @@ export default {
     label: {
       type: String
     },
-    options: {
-      type: Array
+    req: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

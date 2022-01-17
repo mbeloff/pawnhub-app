@@ -18,6 +18,9 @@ export default {
       type: String,
       default: 'text'
     },
+    name: {
+      type: String,
+    },
     label: {
       type: String
     },
