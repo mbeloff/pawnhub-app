@@ -1,5 +1,5 @@
 <template>
-  <form action="" class="py-5 grid gap-5">
+  <div class="py-5 grid gap-5">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
       <span class="col-span-full text-sm mb-6 uppercase text-orange-500 text-center">Personal Details</span>
       <form-input :name="'fname'" :label="'First Name'" :type="'text'" v-model="form.firstName"></form-input>
@@ -12,9 +12,23 @@
       <form-input :name="'postcode'" :label="'Post Code'" :type="'text'" v-model="form.postcode"></form-input>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-x-4">
-      <form-input :name="'DOB'" :label="'Date of Birth'" :type="'text'" v-model="form.dob"></form-input>
-      <form-input :name="'license'" :label="'License #'" :type="'text'" v-model="form.licenseNo"></form-input>
-      <form-input :name="'Expiry'" :label="'License Expiry'" :type="'text'" v-model="form.licenseExp"></form-input>
+      <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">        
+        <input maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.dobDD" @input="handleInput($event,'dobm')">
+        <span class="text-orange-500 opacity-50">/</span>
+        <input ref="dobm" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.dobMM" @input="handleInput($event, 'doby')">
+        <span class="text-orange-500 opacity-50">/</span>
+        <input ref="doby" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.number="form.dobYYYY" @input="handleInput">
+        <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">D.O.B.</label>
+      </div>
+      <form-input maxlength="11" :name="'license'" :label="'License #'" :type="'text'" v-model="form.licenseNo"></form-input>
+      <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">        
+        <input maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.expDD" @input="handleInput($event,'expm')">
+        <span class="text-orange-500 opacity-50">/</span>
+        <input ref="expm" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.expMM" @input="handleInput($event, 'expy')">
+        <span class="text-orange-500 opacity-50">/</span>
+        <input ref="expy" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.number="form.expYYYY" @input="handleInput">
+        <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
+      </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3  gap-x-4">
       <span class="col-span-full text-sm mb-6 uppercase text-orange-500 text-center">Vehicle Details</span>
@@ -32,9 +46,9 @@
       <form-select :name="'fuel'" :label="'Fuel Type'" :options="fuel" v-model="form.fuel"></form-select>
       <form-select class="col-span-full sm:col-span-1" :name="'vtype'" :label="'Type of Vehicle'" :options="vtypes" v-model="form.vehicleType"></form-select>
     </div>
-    <!-- <form-select :name="'loanamount'" :label="'Requested Loan Amount'" :options="amounts"></form-select> -->
+
     <div class="w-full flex flex-col relative my-4">
-      <input class="accent-orange-500 peer" type="range" name="amount" id="amount" min="5000" max="100000" step="2500" v-model="form.amount">
+      <input class="accent-orange-500 peer" type="range" name="amount" id="amount" min="5000" max="100000" step="2500" v-model.number="form.amount">
       <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-stone-500 text-sm transition-all peer-focus:text-orange-400 peer-hover:text-orange-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-orange-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
     </div>
 
@@ -48,10 +62,10 @@
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <button @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between">
+    <div @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between">
       <span class="px-2 text-stone-400">Optional - Image Upload</span>
       <div class="bg-orange-500 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
-    </button>
+    </div>
 
     <div class="flex flex-col relative my-4 pt-1">
       <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="form.message"></textarea>
@@ -59,7 +73,8 @@
     </div>
 
     <button @click.prevent="sendmail" class="mt-4 bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-orange-400">SUBMIT</button>
-  </form>
+
+  </div>
 </template>
 
 <script>
@@ -97,6 +112,9 @@
           address: "",
           postcode: "",
           dob: "",
+          dobDD: "",
+          dobMM: "",
+          dobYYYY: "",
           licenseNo: "",
           licenseExp: "",
           make: "",
@@ -119,6 +137,15 @@
       // this.ofAge()
     },
     methods: {
+      handleInput(e, ref){
+        e.target.value=e.target.value.replace(/[^\d]/g,'');
+        if (e.target.value.length == e.target.attributes["maxlength"].value) {
+          this.$refs[ref].focus()
+        }        
+      },
+      nextInput(e, ref) {
+
+      },
       ofAge() {
         let year = new Date().getFullYear() - 18
         let theDate = new Date(year, 0, 1)

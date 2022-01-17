@@ -1,21 +1,8 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = function(event, context, callback) {
-    // let transporter = nodemailer.createTransport({
-    //     host: 'smtp.gmail.com',
-    //     port: 465,
-    //     secure: true,
-    //     auth: {
-    //         type: 'OAuth2',
-    //         user: process.env.MAIL_LOGIN,
-    //         clientId: process.env.CLIENT_ID,
-    //         clientSecret: process.env.CLIENT_SECRET,
-    //         refreshToken: process.env.REFRESH_TOKEN,
-    //         accessToken: process.env.ACCESS_TOKEN
-    //     }
-    // });
     const transporter = nodemailer.createTransport({
-      host: 'smtp.office365.com',
+      host: process.env.MAIL_SMTP,
       port: 587,
       auth: {
           user: process.env.MAIL_USER,
@@ -26,8 +13,8 @@ exports.handler = function(event, context, callback) {
 
   transporter.sendMail({
       from: `"PawnHub Online" <${process.env.MAIL_USER}>`,
-      to:'michael@wickedcampers.com',
-      subject: 'Pawn Loan Application',
+      to: process.env.MAIL_TEST,
+      subject: 'PawnHub Application',
       text: event.body
   }, function(error, info) {
     if (error) {
