@@ -18,7 +18,7 @@
         <a class="nav-item" href="">About</a>
         <a class="nav-item" href="">Cash for Cars</a>
         <a class="nav-item" href="">FAQ's</a>
-        <open-modal><span class="nav-item">Apply Now</span></open-modal>
+        <span @click="$vfm.show('form')" class="nav-item">Apply Now</span>
         <a class="nav-item" href="">Contact</a>
       </div>
     </div>
@@ -29,9 +29,9 @@
 
 <script>
 import IconStack from "@/components/IconStack.vue"
-import OpenModal from '@/components/Modal.vue'
+// import OpenModal from '@/components/Modal.vue'
 export default {
-  components: {IconStack, OpenModal},
+  components: {IconStack},
   data() {
     return {
       hide: true

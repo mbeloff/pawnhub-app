@@ -12,9 +12,9 @@
           <span class="text-orange-600">Pawn your vehicle for quick and easy cash loans</span>
         </h2>
         <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0 z-20">
-          <open-modal>
-            <span class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/50">Apply Online</span>
-          </open-modal>
+
+            <span @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/50">Apply Online</span>
+
         </div>
         <div class="absolute top-0 w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-5 z-10 pointer-events-none"></div>
       </div>
@@ -54,10 +54,9 @@
 
 <script>
   import IconStack from '@/components/IconStack.vue'
-  import OpenModal from '@/components/Modal.vue'
   export default {
     components: {
-      IconStack, OpenModal
+      IconStack
     },
     data() {
       return {

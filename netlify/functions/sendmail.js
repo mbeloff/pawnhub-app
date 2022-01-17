@@ -18,16 +18,16 @@ exports.handler = function(event, context, callback) {
       host: 'smtp.office365.com',
       port: 587,
       auth: {
-          user: 'info@gabbastorage.com.au',
-          pass: 'Koc65945'
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASS
       }
   });
     console.log(event.body);
 
   transporter.sendMail({
-      from: 'info@gabbastorage.com.au',
+      from: `"PawnHub Online" <${process.env.MAIL_USER}>`,
       to:'michael@wickedcampers.com',
-      subject: 'test email',
+      subject: 'Pawn Loan Application',
       text: event.body
   }, function(error, info) {
     if (error) {
