@@ -8,7 +8,7 @@
     classes="flex justify-center items-center mx-auto overflow-y-auto absolute top-0 bottom-0 my-2"
     content-class="absolute top-0 flex flex-col bg-white max-w-lg"
   >
-  <div class="bg-orange-500 z-50 sticky w-full p-2 top-0 left-0">
+  <div class="bg-orange-500 z-50 w-full p-2 top-0 left-0">
     <h2 class="text-xl font-bold leading-6 flex items-center justify-between text-white">
       Online Application
       <button @click="$emit('cancel', close)"
@@ -18,7 +18,6 @@
         <i class="far fa-times"></i>
       </button>
     </h2>
-    <div class="h-12 bg-gradient-to-b pointer-events-none from-white absolute w-full left-0 top-full"></div>
   </div>
     
 
