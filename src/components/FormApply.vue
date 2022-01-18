@@ -13,20 +13,20 @@
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-x-4">
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">        
-        <input maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.dobDD" @input="handleInput($event,'dobm')">
+        <input @focus="$event.target.select()" maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.dobDD" @input="handleInput($event,'dobm')">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="dobm" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.dobMM" @input="handleInput($event, 'doby')">
+        <input @focus="$event.target.select()" ref="dobm" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.dobMM" @input="handleInput($event, 'doby')">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="doby" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.number="form.dobYYYY" @input="handleInput">
-        <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">D.O.B.</label>
+        <input @focus="$event.target.select()" ref="doby" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.string="form.dobYYYY" @input="handleInput">
+        <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
       </div>
       <form-input maxlength="11" :name="'license'" :label="'License #'" :type="'text'" v-model="form.licenseNo"></form-input>
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">        
-        <input maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.expDD" @input="handleInput($event,'expm')">
+        <input @focus="$event.target.select()" maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.expDD" @input="handleInput($event,'expm')">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="expm" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.expMM" @input="handleInput($event, 'expy')">
+        <input @focus="$event.target.select()" ref="expm" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.expMM" @input="handleInput($event, 'expy')">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="expy" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.number="form.expYYYY" @input="handleInput">
+        <input @focus="$event.target.select()" ref="expy" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.string="form.expYYYY" @input="handleInput">
         <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
       </div>
     </div>
@@ -48,12 +48,12 @@
     </div>
 
     <div class="w-full flex flex-col relative my-4">
-      <input class="accent-orange-500 peer" type="range" name="amount" id="amount" min="5000" max="100000" step="2500" v-model.number="form.amount">
+      <input class="accent-orange-500 peer" type="range" name="amount" id="amount" min="5000" max="50000" step="2500" v-model.number="form.amount">
       <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-stone-500 text-sm transition-all peer-focus:text-orange-400 peer-hover:text-orange-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-orange-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
     </div>
 
     <div class="flex flex-col gap-2">
-      <label for="statusaccept" class="grid grid-flow-col gap-3 items-center col-span-full">
+      <label for="statusaccept" class="grid grid-flow-col gap-3 items-center">
         <input type="checkbox" name="statusaccept" id="statusaccept" class="accent-orange-600 scale-[1.25]" required>
         <span class="text-sm italic tracking-tight leading-tight font-light">My vehicle is unencumbered, registered and in a roadworthy condition</span>
       </label>
@@ -62,7 +62,7 @@
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <div @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between">
+    <div @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between hover:border-orange-500 focus:border-orange-500" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
       <span class="px-2 text-stone-400">Optional - Image Upload</span>
       <div class="bg-orange-500 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </div>
@@ -72,7 +72,7 @@
       <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400" :class="{'top-2': !form.message}">Message</label>
     </div>
 
-    <button @click.prevent="sendmail" class="mt-4 bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-orange-400">SUBMIT</button>
+    <button @click.prevent="sendmail" class="mt-4 bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-orange-400">SUBMIT FOR APPROVAL</button>
 
   </div>
 </template>
@@ -111,12 +111,13 @@
           phone: "",
           address: "",
           postcode: "",
-          dob: "",
           dobDD: "",
           dobMM: "",
           dobYYYY: "",
           licenseNo: "",
-          licenseExp: "",
+          licDD: "",
+          licMM: "",
+          licYYYY: "",
           make: "",
           model: "",
           year: "",
@@ -133,23 +134,64 @@
         uploadresults: [],
       }
     },
-    mounted() {
-      // this.ofAge()
+    computed: {
+      dob() {
+        let year = parseInt(this.form.dobYYYY)
+        let month = parseInt(this.form.dobMM) - 1
+        let day = parseInt(this.form.dobDD)
+        return new Date(year, month, day)
+      },
+      isOfAge() {
+       return this.ofAge(this.dob)
+      }
+    },
+    watch: {
+      'form.dobDD': function(newVal) {
+        if (newVal > 31) {
+          this.form.dobDD = 31
+        }
+        if (newVal == '00') {
+          this.form.dobDD = '01'
+        }   
+      },
+      'form.dobMM': function(newVal) {
+        if (newVal > 12) {
+          this.form.dobMM = 12
+        }
+        if (newVal == '00') {
+          this.form.dobMM = '01'
+        }   
+      },
+      'form.dobYYYY': function(newVal) {
+        if (newVal > 2022) {
+          this.form.dobYYYY = 2022
+        }
+        if ( newVal.length == 4 && parseInt(newVal) < 1900) {
+          this.form.dobYYYY = '1900'
+        }   
+      }
     },
     methods: {
       handleInput(e, ref){
         e.target.value=e.target.value.replace(/[^\d]/g,'');
-        if (e.target.value.length == e.target.attributes["maxlength"].value) {
-          this.$refs[ref].focus()
-        }        
+        if (!ref) return
+        this.nextInput(e, ref)   
       },
       nextInput(e, ref) {
-
+        if (e.target.value.length == e.target.attributes["maxlength"].value) {
+          this.$refs[ref].focus()
+        } 
       },
-      ofAge() {
+      ofAge(date) {
         let year = new Date().getFullYear() - 18
-        let theDate = new Date(year, 0, 1)
-        console.log(theDate)
+        let month = new Date().getMonth()
+        let day = new Date().getDate()
+        let ofAgeDate = new Date(year, month, day)
+        if (date < ofAgeDate) {
+          return true
+        } else {
+          return false
+        }     
       },
       openCloudWidget() {
         window.cloudinary.openUploadWidget({
