@@ -1,7 +1,7 @@
 
 <template>
   <div class="bg-stone-900">     
-    <nav-bar></nav-bar>
+    <nav-bar ></nav-bar>
     
     <form-modal name="form" v-model="show" @cancel="cancel" :transition="{
         'enter-active-class': 'transition duration-200 ease-in-out transform',

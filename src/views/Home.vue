@@ -1,23 +1,26 @@
 <template>
   <div>
-    <div class="content-box flex flex-col md:flex-row py-16 lg:py-20 content-stretch gap-10">
-      <div class="w-full md:w-1/3 py-5">
+
+      <div class="container mx-auto flex flex-col md:flex-row py-16 lg:py-20 content-stretch gap-10 md:px-4">
+        <div class="w-full md:w-1/3 py-5">
         <img class="object-cover w-full h-full" src="https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641957716/ph/hundreds.webp" alt="">
       </div>
-      <div class="lg:flex lg:items-center lg:justify-between gap-10 relative py-5">
+      <div class="lg:flex lg:items-center px-4 md:px-0 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
         
         <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
           Need Cash Fast?
           <br />
-          <span class="text-orange-600">Pawn your vehicle for quick and easy cash loans</span>
+          <span class="text-orange-600">Get a quick and easy cash loan against your vehicle</span>
         </h2>
-        <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0 z-20">
+        <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0 z-20 ">
 
-            <span @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/50">Apply Online</span>
+            <span @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/30">Apply Online</span>
 
         </div>
         <div class="absolute top-0 w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-5 z-10 pointer-events-none"></div>
       </div>
+
+      
     </div>
     <div class="bg-stone-800">
       <div class="content-box text-stone-100 flex flex-col gap-3">
@@ -32,7 +35,6 @@
       <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
     </div>
     </div>
-    
 
     <div class="svg-back relative">
       <div class="absolute w-full h-full bg-stone-900/80"></div>
@@ -72,7 +74,7 @@
           },
           {
             title: "Great Deals",
-            text: "Negotiate the best loan to value ratio. Borrow up to 60% of your vehicles's market value.",
+            text: "Negotiate the best loan to value ratio. Borrow up to 60% of your vehicle's value.",
             icon: "comments-alt-dollar"
           },
           {
@@ -82,7 +84,7 @@
           }
         ]
       }
-    }
+    },
   }
 </script>
 

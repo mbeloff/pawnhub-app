@@ -3,12 +3,12 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
       <span class="col-span-full text-sm mb-6 uppercase text-orange-500 text-center">Personal Details</span>
       <form-input 
-      ref="firstName"  :name="'firstName'" :label="'First Name'" :type="'text'"  v-model="form.firstName" :invalid="isInvalid('firstName')" @input="removeError('firstName')">
+      ref="firstName" :name="'firstName'" :label="'First Name'" :type="'text'"  v-model="form.firstName" :invalid="isInvalid('firstName')" @input="removeError('firstName')">
       </form-input>
       <form-input 
       ref="lastName" :name="'lastName'" :label="'Last Name'" :type="'text'" v-model="form.lastName"  :invalid="isInvalid('lastName')" @input="removeError('lastName')"></form-input>
       <form-input 
-      ref="email" :name="'email'" :label="'Email'" :type="'email'" :error="'Enter a valid email address'" v-model="form.email" :invalid="isInvalid('email')" @input="removeError('email')"></form-input>
+      ref="email" :name="'email'" :label="'Email'" :type="'email'" :error="'Email address is invalid'" v-model="form.email" :invalid="isInvalid('email')" @input="removeError('email')"></form-input>
       <form-input 
       ref="phone" :name="'phone'" :label="'Phone'" :type="'tel'" v-model="form.phone" :invalid="isInvalid('phone')" @input="removeError('phone')"></form-input>
       <form-input 
@@ -19,26 +19,26 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-x-4">
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">        
         <input
-         ref="dobD" @focus="$event.target.select()" maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobD')}">
+         ref="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobD')}">
         <span class="text-orange-500 opacity-50">/</span>
         <input
-         ref="dobM" @focus="$event.target.select()" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobM')}">
+         ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobM')}">
         <span class="text-orange-500 opacity-50">/</span>
         <input
-         ref="dobY" @focus="$event.target.select()" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.string="form.dobY" @input="handleInput, removeError('dobY')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobY')}">
+         ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobY')}">
         <label class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
       </div>
       <form-input
-       ref="licenseNo" maxlength="11" :name="'license'" :label="'License #'" :type="'text'" v-model="form.licenseNo" :invalid="isInvalid('licenseNo')" @input="removeError('licenseNo')"></form-input>
+       ref="license" maxlength="11" :name="'license'" :label="'License #'" :type="'text'" v-model="form.license" :invalid="isInvalid('license')" @input="removeError('license')"></form-input>
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">        
         <input
-         ref="expD" @focus="$event.target.select()" maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}">
+         ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="text" placeholder="DD" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}">
         <span class="text-orange-500 opacity-50">/</span>
         <input
-         ref="expM" @focus="$event.target.select()" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}">
+         ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="text" placeholder="MM" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[30%]" v-model.string="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}">
         <span class="text-orange-500 opacity-50">/</span>
         <input
-         ref="expY" @focus="$event.target.select()" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.string="form.expY" @input="handleInput, removeError('expY')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}">
+         ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="text" placeholder="YYYY" class="peer h-8 border-b-2 focus:border-orange-500 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 focus:outline-none  focus:ring-transparent px-1 text-center w-[40%]" v-model.string="form.expY" @input="handleInput, removeError('expY')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}">
         <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
       </div>
     </div>
@@ -70,19 +70,21 @@
     </div>
 
     <div class="flex flex-col gap-2">
-      <label for="statusaccept" class="grid grid-flow-col gap-3 items-center">
+      <label for="statusaccept" class="grid grid-flow-col gap-3 items-center" :class="{ 'text-red-500 border border-red-500 p-1 rounded' : isInvalid('accept1')}">
+
         <input  
-        type="checkbox" name="statusaccept" id="statusaccept" class="accent-orange-600 scale-[1.25]" required>
+        type="checkbox" name="accept1" id="accept1" class="accent-orange-600 scale-[1.25]"  v-model="form.accept1"  @change="removeError('accept1')">
+        
         <span class="text-sm italic tracking-tight leading-tight font-light">My vehicle is unencumbered, registered and in a roadworthy condition</span>
       </label>
-      <label for="securityaccept" class="grid grid-flow-col gap-3 items-center">
+      <label for="securityaccept" class="grid grid-flow-col gap-3 items-center" :class="{ 'text-red-500 border border-red-500 p-1 rounded' : isInvalid('accept2')}">
         <input  
-        type="checkbox" name="securityaccept" id="securityaccept" class="accent-orange-600 scale-[1.25]" required>
+        type="checkbox" name="accept2" id="accept2" class="accent-orange-600 scale-[1.25]"  v-model="form.accept2" @change="removeError('accept2')">
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <div @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between hover:border-orange-500 focus:border-orange-500" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
-      <span class="px-2 text-stone-400">Optional - Image Upload</span>
+    <div @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between hover:border-orange-500 focus:border-orange-500 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+      <span class="px-2 text-stone-500 group-hover:text-stone-700">Optional - Image Upload</span>
       <div class="bg-orange-500 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </div>
 
@@ -134,7 +136,7 @@
           dobD: "",
           dobM: "",
           dobY: "",
-          licenseNo: "",
+          license: "",
           expD: "",
           expM: "",
           expY: "",
@@ -149,17 +151,30 @@
           vehicleType: "",
           amount: 10000,
           uploads: [],
-          
+          accept1: false,
+          accept2: false,
         },
         uploadresults: [],
         message: "",
         errors:[]
       }
     },
+    mounted() {
+      document.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13 && (event.target.nodeName === 'INPUT' || event.target.nodeName === 'SELECT')) {
+    var form = event.target.form;
+    var index = Array.prototype.indexOf.call(form, event.target);
+    form.elements[index + 1].focus();
+    event.preventDefault();
+  }
+});
+    },
     methods: {
+      tellme(e) {
+        console.log(e)
+      },
       removeError(ref) {
         let index = this.errors.indexOf(ref)
-        console.log(ref, index)
         if (index >= 0) {
           this.errors.splice(index, 1)
         }
@@ -173,23 +188,28 @@
         }
       },
       validate() {
-        for (const [key, value] of Object.entries(this.form)) {
-          console.log(key, value);
-          
-          if (!value) {
-            if (this.errors.indexOf(key) > -1) return
-            this.errors.push(key)
+        for (let [key, value] of Object.entries(this.form)) {             
+          if (value == "" || value == false) {
+            if (this.errors.indexOf(key) == -1) {
+              this.errors.push(key)  
+            }         
           }
         }
+
+        if (this.errors.length) return 
+        // TODO submit form
+        console.log('form completed')
+        
       },
       handleInput(e, ref){
+        console.log('event target',e.target)
         e.target.value=e.target.value.replace(/[^\d]/g,'');
         if (!ref) return
         this.nextInput(e, ref)   
       },
       nextInput(e, ref) {
         if (e.target.value.length == e.target.attributes["maxlength"].value) {
-          this.$refs[ref].focus()
+          document.getElementById(ref).focus()
         } 
       },
       ofAge(date) {
@@ -249,68 +269,76 @@
         let year = parseInt(this.form.dobY)
         let month = parseInt(this.form.dobM) - 1
         let day = parseInt(this.form.dobD)
-        return new Date(year, month, day).toLocaleDateString()
+        return new Date(year, month, day)
       },
       licenseExpiry() {
         let year = parseInt(this.form.expY)
         let month = parseInt(this.form.expM) - 1
         let day = parseInt(this.form.expD)
-        return new Date(year, month, day).toLocaleDateString()
+        return new Date(year, month, day)
       },
       isOfAge() {
        return this.ofAge(this.dob)
       }
     },
+    
     watch: {
       'form.dobD': function(newVal) {
         if (newVal > 31) {
           this.form.dobD = 31
         }
-        if (newVal == '00') {
+        if (newVal == 0) {
           this.form.dobD = '01'
         }   
       },
       'form.dobM': function(newVal) {
+        
         if (newVal > 12) {
           this.form.dobM = 12
         }
-        if (newVal == '00') {
+        if (newVal == 0) {
           this.form.dobM = '01'
         }   
       },
-      'form.dobY': function(newVal) {
-        if (newVal > 2022) {
+      'form.dobY': function(newVal) { 
+        if (newVal > 9999) {
           this.form.dobY = 2022
         }
-        if ( newVal.length == 4 && parseInt(newVal) < 1900) {
-          this.form.dobY = '1900'
-        }   
       },
       'form.expD': function(newVal) {
+        
         if (newVal > 31) {
           this.form.expD = 31
         }
-        if (newVal == '00') {
+        if (newVal == 0) {
           this.form.expD = '01'
         }   
       },
-      'form.expM': function(newVal) {
+      'form.expM': function(newVal) {        
         if (newVal > 12) {
           this.form.expM = 12
         }
-        if (newVal == '00') {
+        if (newVal == 0) {
           this.form.expM = '01'
         }   
       },
       'form.expY': function(newVal) {
-        if ( newVal.length == 4 && parseInt(newVal) < 2000) {
-          this.form.expY = '2000'
-        }   
-      }
+        if (newVal > 2022) {
+          this.form.dobY = 2022
+        }        
+      },
     },
     
   }
 </script>
 
 <style scoped>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
 </style>

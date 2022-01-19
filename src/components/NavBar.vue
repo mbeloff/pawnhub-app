@@ -1,7 +1,7 @@
 <template>
-<header id="nav" class="fixed w-full top-0 backdrop-blur z-50 shadow">
-<div class="w-full overflow-x-hidden">
-  <div class="bg-stone-900/90 w-full h-20 shadow-xl border-b border-stone-100/5">
+<header id="nav" class="fixed w-screen top-0 z-50 shadow-lg">
+<div class="w-full overflow-x-hidden ">
+  <div class="bg-stone-900/90 backdrop-blur w-full h-20 shadow-xl border-b border-stone-100/5">
     <div class="flex justify-between container px-4 mx-auto h-full items-center">
       <img src="../assets/pawnhub_logo.svg" alt="" class="w-24 mr-2">
       <div class="flex items-center h-full">
@@ -11,15 +11,16 @@
       
     </div>
   </div>
-  <div class="bg-stone-800/80 transition-transform translate-x-0" :class="{'hide': hide}">
-    <div class="container mx-auto flex">
-      <div class="text-stone-300 flex flex-col w-full md:flex-row text-sm" >
+  <div class="backdrop-blur bg-stone-800/80 transition-transform translate-x-0 shadow-lg shadow-black" :class="{'hide': hide}">
+    <div class="container mx-auto flex" :class="{ 'invi md:flex hidden' : hide }">
+      <div class="text-stone-300 flex flex-col w-full md:flex-row text-sm py-2 md:py-0" >
         <a class="nav-item" href="">Home</a>
         <a class="nav-item" href="">About</a>
         <a class="nav-item" href="">Cash for Cars</a>
         <a class="nav-item" href="">FAQ's</a>
-        <button @click="$vfm.show('form')" class="nav-item text-amber-500">Apply Now</button>
+        
         <a class="nav-item" href="">Contact</a>
+        <button @click="$vfm.show('form')" class="nav-item text-amber-500 font-bold text-left">Apply Now</button>
       </div>
     </div>
   </div>
@@ -29,7 +30,6 @@
 
 <script>
 import IconStack from "@/components/IconStack.vue"
-// import OpenModal from '@/components/Modal.vue'
 export default {
   components: {IconStack},
   data() {
@@ -43,7 +43,7 @@ export default {
 <style lang="postcss">
 
   .hide {
-    @apply translate-x-full h-0 md:translate-x-0 md:h-auto
+    @apply translate-x-full md:translate-x-0 
   }
 
   .nav-item {
