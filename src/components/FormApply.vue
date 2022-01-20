@@ -3,96 +3,96 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6">
       <span class="col-span-full text-sm my-4 uppercase text-orange-500 text-center">Personal Details</span>
       <div class="relative">
-        <input ref="firstName" id="firstName" name="firstName" type="text" v-model="form.firstName" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('firstName') }" placeholder=" " @input="removeError('firstName')" />
+        <input ref="firstName" id="firstName" name="firstName" type="text" v-model="form.firstName" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('firstName') }" placeholder=" " @input="removeError('firstName')" />
         <label for="firstName" class="my-label">First Name</label>
       </div>
       <div class="relative">
-        <input ref="lastName" id="lastName" name="lastName" type="text" v-model="form.lastName" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('lastName') }" placeholder=" " @input="removeError('lastName')" />
+        <input ref="lastName" id="lastName" name="lastName" type="text" v-model="form.lastName" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('lastName') }" placeholder=" " @input="removeError('lastName')" />
         <label for="lastName" class="my-label">Last Name</label>
       </div>
       <div class="relative">
-        <input ref="email" id="email" name="email" type="email" v-model="form.email" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('email') }" placeholder=" " @input="removeError('email')" />
+        <input ref="email" id="email" name="email" type="email" v-model="form.email" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('email') }" placeholder=" " @input="removeError('email')" />
         <label for="email" class="my-label">Email</label>
       </div>
       <div class="relative">
-        <input ref="phone" id="phone" name="phone" type="tel" v-model="form.phone" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('phone') }" placeholder=" " @input="removeError('phone')" />
+        <input ref="phone" id="phone" name="phone" type="tel" v-model="form.phone" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('phone') }" placeholder=" " @input="removeError('phone')" />
         <label for="phone" class="my-label">Phone</label>
       </div>
       <div class="relative">
-        <input ref="address" id="address" name="address" type="text" v-model="form.address" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('address') }" placeholder=" " @input="removeError('address')" />
+        <input ref="address" id="address" name="address" type="text" v-model="form.address" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('address') }" placeholder=" " @input="removeError('address')" />
         <label for="address" class="my-label">Street Address</label>
       </div>
       <div class="relative">
-        <input ref="postcode" id="postcode" name="postcode" type="text" v-model="form.postcode" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('postcode') }" placeholder=" " @input="removeError('postcode')" />
+        <input ref="postcode" id="postcode" name="postcode" type="text" v-model="form.postcode" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('postcode') }" placeholder=" " @input="removeError('postcode')" />
         <label for="postcode" class="my-label">Postal Code</label>
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 gap-y-8 mt-2">
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">
-        <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="base-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
+        <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="base-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
+        <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="my-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="base-input w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'invalid' : isInvalid('dobY')}" autocomplete="bday-year">
+        <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'invalid' : isInvalid('dobY')}" autocomplete="bday-year">
         <label class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
       </div>
       <div class="relative">
-        <input ref="license" id="license" name="license" type="text" v-model="form.license" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('license') }" placeholder=" " @input="removeError('license')" />
+        <input ref="license" id="license" name="license" type="text" maxlength="14" v-model="form.license" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('license') }" placeholder=" " @input="removeError('license')" />
         <label for="license" class="my-label">License #</label>
       </div>
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">
-        <input ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="number" placeholder="DD" class="base-input w-[30%]" v-model.number="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
+        <input ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="number" placeholder="MM" class="base-input w-[30%]" v-model.number="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
+        <input ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="number" placeholder="MM" class="my-input w-[30%]" v-model.number="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="number" placeholder="YYYY" class="base-input w-[40%]" v-model.number="form.expY" @input="handleInput, removeError('expY')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
+        <input ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.expY" @input="handleInput, removeError('expY')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6">
       <span class="col-span-full text-sm my-4 uppercase text-orange-500 text-center">Vehicle Details</span>
       <div class="relative">
-        <input ref="make" id="make" name="make" type="text" v-model="form.make" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('make') }" placeholder=" " @input="removeError('make')" />
+        <input ref="make" id="make" name="make" type="text" v-model="form.make" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('make') }" placeholder=" " @input="removeError('make')" />
         <label for="make" class="my-label">Vehicle Make</label>
       </div>
       <div class="relative">
-        <input ref="model" id="model" name="model" type="text" v-model="form.model" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('model') }" placeholder=" " @input="removeError('model')" />
+        <input ref="model" id="model" name="model" type="text" v-model="form.model" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('model') }" placeholder=" " @input="removeError('model')" />
         <label for="model" class="my-label">Model</label>
       </div>
       <div class="relative">
-        <select name="year" id="year" class="peer my-select" v-model="form.year" @input="removeError('year')" :class="{ 'invalid' : isInvalid('year') }">
+        <select name="year" id="year" class="peer my-input w-full" v-model="form.year" @input="removeError('year')" :class="{ 'invalid' : isInvalid('year') }">
           <option v-for="option in years">{{option}}</option>
         </select>
         <label for="year" class="my-label" :class="{'label-initial' : !form.year}">Year</label>
       </div>
       <div class="relative">
-        <input ref="rego" id="rego" name="rego" type="text" v-model="form.rego" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('rego') }" placeholder=" " @input="removeError('rego')" />
+        <input ref="rego" id="rego" name="rego" type="text" maxlength="10" v-model="form.rego" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('rego') }" placeholder=" " @input="removeError('rego')" />
         <label for="rego" class="my-label">Rego #</label>
       </div>
       <div class="relative">
-        <input ref="kms" id="kms" name="kms" type="number" v-model="form.kms" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('kms') }" placeholder=" " @input="removeError('kms')" />
+        <input ref="kms" id="kms" name="kms" type="number" v-model="form.kms" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('kms') }" placeholder=" " @input="removeError('kms')" />
         <label for="kms" class="my-label">Km's</label>
       </div>
       <div class="relative">
-        <select name="condition" id="condition" class="peer my-select" v-model="form.condition" @input="removeError('condition')" :class="{ 'invalid' : isInvalid('condition') }">
+        <select name="condition" id="condition" class="peer my-input w-full" v-model="form.condition" @input="removeError('condition')" :class="{ 'invalid' : isInvalid('condition') }">
           <option v-for="option in conditions">{{option}}</option>
         </select>
         <label for="condition" class="my-label" :class="{'label-initial' : !form.condition}">Condition</label>
       </div>
       <div class="relative">
-        <select name="transmission" id="transmission" class="peer my-select" v-model="form.transmission" @input="removeError('transmission')" :class="{ 'invalid' : isInvalid('transmission') }">
+        <select name="transmission" id="transmission" class="peer my-input w-full" v-model="form.transmission" @input="removeError('transmission')" :class="{ 'invalid' : isInvalid('transmission') }">
           <option v-for="option in transmissions">{{option}}</option>
         </select>
         <label for="transmission" class="my-label" :class="{'label-initial' : !form.transmission}">Transmission</label>
       </div>
       <div class="relative">
-        <select name="fuel" id="fuel" class="peer my-select" v-model="form.fuel" @input="removeError('fuel')" :class="{ 'invalid' : isInvalid('fuel') }">
+        <select name="fuel" id="fuel" class="peer my-input w-full" v-model="form.fuel" @input="removeError('fuel')" :class="{ 'invalid' : isInvalid('fuel') }">
           <option v-for="option in fuels">{{option}}</option>
         </select>
         <label for="fuel" class="my-label" :class="{'label-initial' : !form.fuel}">Fuel Type</label>
       </div>
       <div class="relative">
-        <select name="vehicleType" id="vehicleType" class="peer my-select" v-model="form.vehicleType" @input="removeError('vehicleType')" :class="{ 'invalid' : isInvalid('vehicleType') }">
+        <select name="vehicleType" id="vehicleType" class="peer my-input w-full" v-model="form.vehicleType" @input="removeError('vehicleType')" :class="{ 'invalid' : isInvalid('vehicleType') }">
           <option v-for="option in vtypes">{{option}}</option>
         </select>
         <label for="vehicleType" class="my-label" :class="{'label-initial' : !form.vehicleType}">Type of Vehicle</label>
@@ -173,11 +173,11 @@
           transmission: "",
           fuel: "",
           vehicleType: "",
-          amount: 10000,
-          uploads: [],
+          amount: 10000,          
           accept1: false,
           accept2: false,
         },
+        uploads: [],
         uploadresults: [],
         message: "",
         errors: []
@@ -210,8 +210,8 @@
       validate() {
         this.errors = []
         for (let [key, value] of Object.entries(this.form)) {
-          if (key != 'uploads' && (value == "" || value == false))
-            this.errors.push(key)
+          if (value == "" || value == false)
+          {this.errors.push(key)}
         }
 
         if (this.errors.length) {
@@ -266,7 +266,7 @@
           (error, result) => {
             if (!error && result && result.event === "success") {
               let res = result.info
-              this.form.uploads.push({
+              this.uploads.push({
                 "thumb": res.thumbnail_url,
                 "url": res.secure_url
               })
@@ -300,13 +300,13 @@
         let year = parseInt(this.form.dobY)
         let month = parseInt(this.form.dobM) - 1
         let day = parseInt(this.form.dobD)
-        return new Date(year, month, day)
+        return new Date(year, month, day).toLocaleDateString()
       },
       licenseExpiry() {
         let year = parseInt(this.form.expY)
         let month = parseInt(this.form.expM) - 1
         let day = parseInt(this.form.expD)
-        return new Date(year, month, day)
+        return new Date(year, month, day).toLocaleDateString()
       },
       isOfAge() {
         return this.ofAge(this.dob)
@@ -379,47 +379,23 @@
     -moz-appearance: textfield;
   }
 
-  .base-input {
-   @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 border-orange-500/50
-  }
-
-  .base-input:focus {
-    @apply border-orange-500 outline-none ring-transparent
-  }
-
-  .base-input.invalid {
-    @apply border-b-4 border-red-500
-  }
-
   .my-input {
-    @apply h-8 w-full border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 placeholder-transparent px-1
-  }
-
-  .my-input.invalid {
-    @apply border-b-4 border-red-500
+   @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 border-orange-500/50
   }
 
   .my-input:focus {
     @apply border-orange-500 outline-none ring-transparent
   }
 
+  .my-input.invalid {
+    @apply border-b-4 border-red-500
+  }
+
   .my-label  {
     @apply px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400 peer-focus:text-xs
   }
 
-  .my-select.invalid {
-    @apply border-b-4 border-red-500
-  }
-
   .my-label.label-initial {
     @apply text-stone-500 top-2 text-sm peer-focus:text-xs
-  }
-
-  .my-select {
-    @apply h-8 w-full border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 placeholder-transparent px-1
-  }
-
-  .my-select:focus {
-    @apply border-orange-500 outline-none ring-transparent
   }
 </style>

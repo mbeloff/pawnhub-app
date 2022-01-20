@@ -9,7 +9,10 @@ exports.handler = function(event, context, callback) {
           pass: process.env.MAIL_PASS
       }
   });
-    console.log(event.body);
+  console.log(event.body);
+
+
+
 
   transporter.sendMail({
       from: `"PawnHub Online" <${process.env.MAIL_USER}>`,

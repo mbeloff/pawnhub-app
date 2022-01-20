@@ -1,32 +1,24 @@
 <template>
   <div>
     <div class="bg-1 bg-cover bg-center py-20">
-
       <div class="container mx-auto lg:flex-col lg:items-center px-4 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
-
         <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
           Need Cash Fast?
           <br />
           <div class="bg-black/50">
             <span class="text-orange-600">Get a quick and easy cash loan against your vehicle</span>   
-          </div>
-                 
+          </div>                 
         </h2>
         <div class="flex mt-8 lg:flex-shrink-0 z-2 ">
-
           <span @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/30">Apply Online</span>
-
         </div>
       </div>
-
-
-      <!-- </div> -->
     </div>
 
     <div class="bg-stone-800">
       <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
         <div class="text-stone-100 flex flex-col gap-3 lg:w-4/5 ml-auto">
-          <h1 class="text-amber-500 font-medium text-2xl tracking-wider">
+          <h1 class="text-amber-500 font-medium text-4xl mb-4">
             Get the money you need <span class="italic font-bold">today</span>
           </h1>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or expenses?</p>
@@ -53,10 +45,8 @@
             <p class="text-left py-4">{{card.text}}</p>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
   <div class="h-screen bg-stone-900"></div>
 </template>
