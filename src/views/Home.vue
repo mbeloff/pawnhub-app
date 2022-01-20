@@ -1,39 +1,46 @@
 <template>
   <div>
+    <div class="bg-1 bg-cover bg-center py-20">
 
-      <div class="container mx-auto flex flex-col md:flex-row py-16 lg:py-20 content-stretch gap-10 md:px-4">
-        <div class="w-full md:w-1/3 py-5">
-        <img class="object-cover w-full h-full" src="https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641957716/ph/hundreds.webp" alt="">
-      </div>
-      <div class="lg:flex lg:items-center px-4 md:px-0 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
-        
+      <div class="container mx-auto lg:flex-col lg:items-center px-4 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
+
         <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
           Need Cash Fast?
           <br />
-          <span class="text-orange-600">Get a quick and easy cash loan against your vehicle</span>
+          <div class="bg-black/50">
+            <span class="text-orange-600">Get a quick and easy cash loan against your vehicle</span>   
+          </div>
+                 
         </h2>
-        <div class="flex mt-8 lg:flex-shrink-0 lg:mt-0 z-20 ">
+        <div class="flex mt-8 lg:flex-shrink-0 z-2 ">
 
-            <span @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/30">Apply Online</span>
+          <span @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-xl font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-600 border border-transparent rounded-md hover:bg-orange-500 focus:outline-none shadow-lg shadow-orange-500/30">Apply Online</span>
 
         </div>
-        <div class="absolute top-0 w-full h-full car-bg bg-no-repeat bg-contain bg-bottom opacity-5 z-10 pointer-events-none"></div>
       </div>
 
-      
+
+      <!-- </div> -->
     </div>
+
     <div class="bg-stone-800">
-      <div class="content-box text-stone-100 flex flex-col gap-3">
-      <h1 class="text-amber-500 font-medium text-2xl tracking-wider">
-        For the money you need <span class="italic font-bold">today</span>
-      </h1>
-      <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or expenses?</p>
-      <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Won a contract and need to purchase materials or hire more staff?</p>
-      <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a commission payment but have bills to pay?</p>
-      <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Expecting a tax return and need cash now?</p>
-      <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Don't want to sell any assets, but need to pay overdue invoices?</p>
-      <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
-    </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
+        <div class="text-stone-100 flex flex-col gap-3 lg:w-4/5 ml-auto">
+          <h1 class="text-amber-500 font-medium text-2xl tracking-wider">
+            Get the money you need <span class="italic font-bold">today</span>
+          </h1>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or expenses?</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Won a contract and need to purchase materials or hire more staff?</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a commission payment but have bills to pay?</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Expecting a tax return and need cash now?</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Don't want to sell any assets, but need to pay overdue invoices?</p>
+          <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
+        </div>
+        <div class="w-full lg:w-4/5 lg:py-10 h-full mr-auto">
+          <img class="object-cover w-full h-full" src="https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641957716/ph/hundreds.webp" alt="">
+        </div>
+      </div>
+
     </div>
 
     <div class="svg-back relative">
@@ -91,6 +98,10 @@
 <style lang="postcss">
   .content-box {
     @apply container px-4 py-20 mx-auto
+  }
+
+  .bg-1 {
+    background-image: url(https://res.cloudinary.com/pawnhub/image/upload/v1642638013/assets/ph_bg1.jpg)
   }
 
   .svg-back {
