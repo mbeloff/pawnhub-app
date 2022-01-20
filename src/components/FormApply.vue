@@ -2,44 +2,101 @@
   <form ref="appForm" class="grid gap-5">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6">
       <span class="col-span-full text-sm my-4 uppercase text-orange-500 text-center">Personal Details</span>
-      <form-input ref="firstName" :name="'firstName'" :label="'First Name'" v-model="form.firstName" :invalid="isInvalid('firstName')" @input="removeError('firstName')">
-      </form-input>
-      <form-input ref="lastName" :name="'lastName'" :label="'Last Name'" v-model="form.lastName" :invalid="isInvalid('lastName')" @input="removeError('lastName')"></form-input>
-      <form-input ref="email" :name="'email'" :label="'Email'" :type="'email'" :error="'Email address is invalid'" v-model="form.email" :invalid="isInvalid('email')" @input="removeError('email')"></form-input>
-      <form-input ref="phone" :name="'phone'" :label="'Phone'" :type="'tel'" v-model="form.phone" :invalid="isInvalid('phone')" @input="removeError('phone')"></form-input>
-      <form-input ref="address" :name="'address'" :label="'Street Address'" v-model="form.address" :invalid="isInvalid('address')" @input="removeError('address')"></form-input>
-      <form-input ref="postcode" :name="'postcode'" :label="'Post Code'" v-model="form.postcode" :invalid="isInvalid('postcode')" @input="removeError('postcode')"></form-input>
+      <div class="relative">
+        <input ref="firstName" id="firstName" name="firstName" type="text" v-model="form.firstName" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('firstName') }" placeholder=" " @input="removeError('firstName')" />
+        <label for="firstName" class="my-label">First Name</label>
+      </div>
+      <div class="relative">
+        <input ref="lastName" id="lastName" name="lastName" type="text" v-model="form.lastName" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('lastName') }" placeholder=" " @input="removeError('lastName')" />
+        <label for="lastName" class="my-label">Last Name</label>
+      </div>
+      <div class="relative">
+        <input ref="email" id="email" name="email" type="email" v-model="form.email" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('email') }" placeholder=" " @input="removeError('email')" />
+        <label for="email" class="my-label">Email</label>
+      </div>
+      <div class="relative">
+        <input ref="phone" id="phone" name="phone" type="tel" v-model="form.phone" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('phone') }" placeholder=" " @input="removeError('phone')" />
+        <label for="phone" class="my-label">Phone</label>
+      </div>
+      <div class="relative">
+        <input ref="address" id="address" name="address" type="text" v-model="form.address" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('address') }" placeholder=" " @input="removeError('address')" />
+        <label for="address" class="my-label">Street Address</label>
+      </div>
+      <div class="relative">
+        <input ref="postcode" id="postcode" name="postcode" type="text" v-model="form.postcode" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('postcode') }" placeholder=" " @input="removeError('postcode')" />
+        <label for="postcode" class="my-label">Postal Code</label>
+      </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 gap-y-8 mt-2">
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">
-        <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="date-input border-b-2 border-orange-500/50 w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobD')}" autocomplete="bday-day">
+        <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="base-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="date-input border-b-2 border-orange-500/50 w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobM')}" autocomplete="bday-month">
+        <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="base-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="date-input border-b-2 border-orange-500/50 w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'border-red-500 border-b-4' : isInvalid('dobY')}" autocomplete="bday-year">
+        <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="base-input w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'invalid' : isInvalid('dobY')}" autocomplete="bday-year">
         <label class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
       </div>
-      <form-input ref="license" maxlength="11" :name="'license'" :label="'License #'" v-model="form.license" :invalid="isInvalid('license')" @input="removeError('license')"></form-input>
+      <div class="relative">
+        <input ref="license" id="license" name="license" type="text" v-model="form.license" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('license') }" placeholder=" " @input="removeError('license')" />
+        <label for="license" class="my-label">License #</label>
+      </div>
       <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">
-        <input ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="number" placeholder="DD" class="date-input border-b-2 border-orange-500/50 w-[30%]" v-model.number="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}" autocomplete="off">
+        <input ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="number" placeholder="DD" class="base-input w-[30%]" v-model.number="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="number" placeholder="MM" class="date-input border-b-2 border-orange-500/50 w-[30%]" v-model.number="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}" autocomplete="off">
+        <input ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="number" placeholder="MM" class="base-input w-[30%]" v-model.number="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <span class="text-orange-500 opacity-50">/</span>
-        <input ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="number" placeholder="YYYY" class="date-input border-b-2 border-orange-500/50 w-[40%]" v-model.number="form.expY" @input="handleInput, removeError('expY')" :class="{ 'border-red-500 border-b-4' : isInvalid('expD')}" autocomplete="off">
+        <input ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="number" placeholder="YYYY" class="base-input w-[40%]" v-model.number="form.expY" @input="handleInput, removeError('expY')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6">
       <span class="col-span-full text-sm my-4 uppercase text-orange-500 text-center">Vehicle Details</span>
-      <form-input ref="make" :name="'make'" :label="'Make'" v-model="form.make" :invalid="isInvalid('make')" @input="removeError('make')"></form-input>
-      <form-input ref="model" :name="'model'" :label="'Model'" v-model="form.model" :invalid="isInvalid('model')" @input="removeError('model')"></form-input>
-      <form-select ref="year" :name="'year'" :label="'Year'" :options="years" v-model="form.year" :invalid="isInvalid('year')" @input="removeError('year')"></form-select>
-      <form-input ref="rego" :name="'rego'" :label="'Rego #'" v-model="form.rego" :invalid="isInvalid('rego')" @input="removeError('rego')"></form-input>
-      <form-input ref="kms" :name="'kms'" :label="'Km\'s'" v-model="form.kms" :invalid="isInvalid('kms')" @input="removeError('kms')"></form-input>
-      <form-select ref="condition" class="col-span-full sm:col-span-1" :name="'condition'" :label="'Condition'" :options="conditions" v-model="form.condition" :invalid="isInvalid('condition')" @input="removeError('condition')"></form-select>
-      <form-select ref="transmission" :name="'transmission'" :label="'Transmission'" :options="transmissions" v-model="form.transmission" :invalid="isInvalid('transmission')" @input="removeError('transmission')"></form-select>
-      <form-select ref="fuel" :name="'fuel'" :label="'Fuel Type'" :options="fuel" v-model="form.fuel" :invalid="isInvalid('fuel')" @input="removeError('fuel')"></form-select>
-      <form-select ref="vehicleType" class="col-span-full sm:col-span-1" :name="'vehicleType'" :label="'Type of Vehicle'" :options="vtypes" v-model="form.vehicleType" :invalid="isInvalid('vehicleType')" @input="removeError('vehicleType')"></form-select>
+      <div class="relative">
+        <input ref="make" id="make" name="make" type="text" v-model="form.make" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('make') }" placeholder=" " @input="removeError('make')" />
+        <label for="make" class="my-label">Vehicle Make</label>
+      </div>
+      <div class="relative">
+        <input ref="model" id="model" name="model" type="text" v-model="form.model" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('model') }" placeholder=" " @input="removeError('model')" />
+        <label for="model" class="my-label">Model</label>
+      </div>
+      <div class="relative">
+        <select name="year" id="year" class="peer my-select" v-model="form.year" @input="removeError('year')" :class="{ 'invalid' : isInvalid('year') }">
+          <option v-for="option in years">{{option}}</option>
+        </select>
+        <label for="year" class="my-label" :class="{'label-initial' : !form.year}">Year</label>
+      </div>
+      <div class="relative">
+        <input ref="rego" id="rego" name="rego" type="text" v-model="form.rego" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('rego') }" placeholder=" " @input="removeError('rego')" />
+        <label for="rego" class="my-label">Rego #</label>
+      </div>
+      <div class="relative">
+        <input ref="kms" id="kms" name="kms" type="number" v-model="form.kms" class="base-input w-full peer" :class="{ 'invalid' : isInvalid('kms') }" placeholder=" " @input="removeError('kms')" />
+        <label for="kms" class="my-label">Km's</label>
+      </div>
+      <div class="relative">
+        <select name="condition" id="condition" class="peer my-select" v-model="form.condition" @input="removeError('condition')" :class="{ 'invalid' : isInvalid('condition') }">
+          <option v-for="option in conditions">{{option}}</option>
+        </select>
+        <label for="condition" class="my-label" :class="{'label-initial' : !form.condition}">Condition</label>
+      </div>
+      <div class="relative">
+        <select name="transmission" id="transmission" class="peer my-select" v-model="form.transmission" @input="removeError('transmission')" :class="{ 'invalid' : isInvalid('transmission') }">
+          <option v-for="option in transmissions">{{option}}</option>
+        </select>
+        <label for="transmission" class="my-label" :class="{'label-initial' : !form.transmission}">Transmission</label>
+      </div>
+      <div class="relative">
+        <select name="fuel" id="fuel" class="peer my-select" v-model="form.fuel" @input="removeError('fuel')" :class="{ 'invalid' : isInvalid('fuel') }">
+          <option v-for="option in fuels">{{option}}</option>
+        </select>
+        <label for="fuel" class="my-label" :class="{'label-initial' : !form.fuel}">Fuel Type</label>
+      </div>
+      <div class="relative">
+        <select name="vehicleType" id="vehicleType" class="peer my-select" v-model="form.vehicleType" @input="removeError('vehicleType')" :class="{ 'invalid' : isInvalid('vehicleType') }">
+          <option v-for="option in vtypes">{{option}}</option>
+        </select>
+        <label for="vehicleType" class="my-label" :class="{'label-initial' : !form.vehicleType}">Type of Vehicle</label>
+      </div>
     </div>
     <div class="w-full flex flex-col relative my-4 mt-10">
       <input class="accent-orange-500 peer" type="range" name="amount" id="amount" min="5000" max="50000" step="2500" v-model.number="form.amount">
@@ -64,8 +121,8 @@
     </div>
 
     <div class="flex flex-col relative my-4 pt-1">
-      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message"></textarea>
-      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400" :class="{'top-2': !form.message}">Message</label>
+      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message" placeholder=" "></textarea>
+      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
     <button @click.prevent="validate()" class="bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-orange-400">SUBMIT FOR APPROVAL</button>
@@ -74,24 +131,17 @@
 </template>
 
 <script>
-  import FormInput from '@/components/FormInput.vue'
-  import FormSelect from '@/components/FormSelect.vue'
   export default {
-    components: {
-      FormInput,
-      FormSelect
-    },
     data() {
       return {
         uid: Date.now(),
-
         conditions: [
           'As New', 'Excellent', 'Above Average', 'Good', 'Fair', 'Poor', 'Unroadworthy'
         ],
         transmissions: [
           'Automatic', 'Manual', 'Sequential'
         ],
-        fuel: [
+        fuels: [
           'Petrol', 'Diesel', 'Hybrid', 'Electric'
         ],
         vtypes: [
@@ -166,10 +216,14 @@
 
         if (this.errors.length) {
           let id = this.errors[0]
-          document.getElementById(id).scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});   
-          
-          setTimeout(function() {
-              document.getElementById(id).focus()
+          document.getElementById(id).scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+            inline: "nearest"
+          });
+
+          setTimeout(function () {
+            document.getElementById(id).focus()
           }, 100);
           return
         }
@@ -258,7 +312,6 @@
         return this.ofAge(this.dob)
       }
     },
-
     watch: {
       'form.dobD': function (newVal) {
         if (newVal > 31) {
@@ -326,11 +379,47 @@
     -moz-appearance: textfield;
   }
 
-  .date-input {
-    @apply h-8 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 text-center
+  .base-input {
+   @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 border-orange-500/50
   }
 
-  .date-input:focus {
+  .base-input:focus {
+    @apply border-orange-500 outline-none ring-transparent
+  }
+
+  .base-input.invalid {
+    @apply border-b-4 border-red-500
+  }
+
+  .my-input {
+    @apply h-8 w-full border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 placeholder-transparent px-1
+  }
+
+  .my-input.invalid {
+    @apply border-b-4 border-red-500
+  }
+
+  .my-input:focus {
+    @apply border-orange-500 outline-none ring-transparent
+  }
+
+  .my-label  {
+    @apply px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400 peer-focus:text-xs
+  }
+
+  .my-select.invalid {
+    @apply border-b-4 border-red-500
+  }
+
+  .my-label.label-initial {
+    @apply text-stone-500 top-2 text-sm peer-focus:text-xs
+  }
+
+  .my-select {
+    @apply h-8 w-full border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 border-orange-500/50 placeholder-transparent px-1
+  }
+
+  .my-select:focus {
     @apply border-orange-500 outline-none ring-transparent
   }
 </style>
