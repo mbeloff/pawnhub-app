@@ -126,9 +126,6 @@
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
     <button @click.prevent="validate()" class="bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-orange-400">SUBMIT FOR APPROVAL</button>
-     
-    
-    <button @click.prevent="this.$vfm.show('confirmation')">Open Modal</button>
 
   </form>
 </template>
@@ -276,12 +273,14 @@
           .then(response => response.text())
           .then(result => {
             if (result == 'Ok') {
-              // TODO display success message, close modal etc
-
+              this.$vfm.show('confirmation')
               console.log('Submission Successful')
             }
           })
           .catch(error => {
+            
+            // TODO error/retry dialog
+
             console.log('failed to submit: ', error)
           });
       },
