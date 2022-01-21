@@ -15,7 +15,7 @@
         type="button"
         class="inline-flex shadow-md justify-center p-2 px-3 bg-orange-200 border border-transparent rounded-md hover:bg-orange-400 text-orange-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
       >
-        <i class="far fa-times"></i>
+      <i class="far fa-times"></i>
       </button>
     </h2>
   </div>
