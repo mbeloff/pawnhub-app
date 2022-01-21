@@ -151,35 +151,34 @@
           "'22", "'21", "'20", "'19", "'18", "'17", "'16", "'15", "'14", "'13", "'12", "'11", "'10", "'09", "'08", "'07", "'06", "'05", "'04", "'03", "'02", "'01", "'00", "'99", "'98", "'97", "'96", "'95", "'94", "'93", "'92", "'91", "'90", "'89", "'88", "'87", "'86", "'85", "'84", "'83", "'82", "'81", "'80", "'79", "'78", "'77", "'76", "'75", "'74", "'73", "'72", "'71", "'70", "'69", "'68", "'67", "'66", "'65", "'64", "'63", "'62", "'61", "'60", "'59", "'58", "'57", "'56", "'55", "'54", "'53", "'52", "'51", "'50"
         ],
         form: {
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          address: "",
-          postcode: "",
-          dobD: "",
-          dobM: "",
-          dobY: "",
-          license: "",
-          expD: "",
-          expM: "",
-          expY: "",
-          make: "",
-          model: "",
-          year: "",
-          rego: "",
-          kms: "",
-          condition: "",
-          transmission: "",
-          fuel: "",
+          firstName: "M",
+          lastName: "Test",
+          email: "mail@test.com",
+          phone: "+61 123 8763",
+          address: "22 Uajbai st",
+          postcode: "5234",
+          dobD: "18",
+          dobM: "01",
+          dobY: "1985",
+          license: "0072341223",
+          expD: "01",
+          expM: "07",
+          expY: "2024",
+          make: "VW",
+          model: "Golf GTI",
+          year: "'19",
+          rego: "123ABC",
+          kms: "40000",
+          condition: "Excellent",
+          transmission: "Manual",
+          fuel: "Petrol",
           vehicleType: "",
-          amount: 10000,          
-          accept1: false,
-          accept2: false,
+          amount: 20000,          
+          accept1: true,
+          accept2: true,
         },
-        uploads: [],
-        uploadresults: [],
-        message: "",
+        uploads: [{"thumb":"https://res.cloudinary.com/pawnhub/image/upload/c_limit,h_60,w_90/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg","url":"https://res.cloudinary.com/pawnhub/image/upload/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg"}],
+        message: "tessst message",
         errors: []
       }
     },
@@ -227,7 +226,7 @@
           }, 100);
           return
         }
-        // TODO submit form
+        this.sendmail()
         console.log('form completed')
 
       },
@@ -242,17 +241,7 @@
           document.getElementById(ref).focus()
         }
       },
-      ofAge(date) {
-        let year = new Date().getFullYear() - 18
-        let month = new Date().getMonth()
-        let day = new Date().getDate()
-        let ofAgeDate = new Date(year, month, day)
-        if (date < ofAgeDate) {
-          return true
-        } else {
-          return false
-        }
-      },
+      
       openCloudWidget() {
         window.cloudinary.openUploadWidget({
             cloud_name: 'pawnhub',
@@ -274,14 +263,13 @@
           })
       },
       sendmail() {
-        var body = "a string";
         var requestOptions = {
           method: 'POST',
-          body: body,
+          body: JSON.stringify(this.emailBody),
           redirect: 'follow'
         };
         fetch(
-            import.meta.env.VITE_HOST + "/.netlify/functions/sendmail", requestOptions)
+          import.meta.env.VITE_HOST + "/.netlify/functions/sendmail", requestOptions)
           .then(response => response.text())
           .then(result => {
             if (result == 'Ok') {
@@ -300,16 +288,50 @@
         let year = parseInt(this.form.dobY)
         let month = parseInt(this.form.dobM) - 1
         let day = parseInt(this.form.dobD)
-        return new Date(year, month, day).toLocaleDateString()
+        return new Date(year, month, day)
       },
       licenseExpiry() {
         let year = parseInt(this.form.expY)
         let month = parseInt(this.form.expM) - 1
         let day = parseInt(this.form.expD)
-        return new Date(year, month, day).toLocaleDateString()
+        let date = new Date(year, month, day)
+        if (date > new Date()) {
+          return date.toLocaleDateString()
+        } else {
+          return date.toLocaleDateString() + ' (**expired)'
+        }
       },
-      isOfAge() {
-        return this.ofAge(this.dob)
+      dobString() {        
+        let year = new Date().getFullYear() - 18
+        let month = new Date().getMonth()
+        let day = new Date().getDate()
+        let ofAgeDate = new Date(year, month, day)
+        if (this.dob < ofAgeDate) {
+          return this.dob.toLocaleDateString()
+        } else {
+          return this.dob.toLocaleDateString() + ' (**under 18)'
+        }
+      },
+      emailBody() {
+        let json = {
+          requestedAmount: '$' + this.form.amount.toLocaleString(),
+            name: this.form.firstName + ' ' + this.form.lastName,
+            phone: this.form.phone,
+            email: this.form.email,
+            address: this.form.address + ', ' + this.form.postcode,
+            dob: this.dobString,
+            license: this.form.license,
+            expiry: this.licenseExpiry,
+            vehicle: this.form.year + ' ' + this.form.make + ' ' + this.form.model,
+            vehicleType: this.form.vehicleType,
+            rego: this.form.rego,
+            mileage: this.form.kms,
+            transmission: this.form.transmission,
+            fuel: this.form.fuel,
+            message: this.message,
+            uploads: this.uploads
+        }
+        return json
       }
     },
     watch: {

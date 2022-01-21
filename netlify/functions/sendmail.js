@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const html = require('escape-html-template');
+const safeAttribute = require('escape-html-template').safeAttribute
 
 exports.handler = function(event, context, callback) {
     const transporter = nodemailer.createTransport({
@@ -9,16 +11,46 @@ exports.handler = function(event, context, callback) {
           pass: process.env.MAIL_PASS
       }
   });
-  console.log(event.body);
 
+  let body = JSON.parse(event.body)
 
+  let uploads = ''
+  body.uploads.forEach(el => {
+    uploads = uploads + `<a href=${el.url}><img src=${el.thumb}></a>`
+  })
 
+  const safeHtml = html`
+  <h2>PawnHub Application</h2>
+  <h3>Requested Loan Amount: ${body.requestedAmount}</h3>
+  <table>
+  <tr><th style="text-align: left" colspan="2"><h4>Customer Details</h4><th></tr>
+  <tr><td>Name: </td><td>${body.name}</td></tr>
+  <tr><td>Email: </td><td>${body.email}</td></tr>
+  <tr><td>Phone: </td><td>${body.phone}</td></tr>
+  <tr><td>Address: </td><td>${body.address}</td></tr>
+  <tr><td>D.O.B. </td><td>${body.dob}</td></tr>
+  <tr><td>License # </td><td>${body.license}</td></tr>
+  <tr><td>License Expiry: </td><td>${body.expiry}</td></tr>
+  <tr><th style="text-align: left" colspan="2"><h4>Asset Details</h4></th></tr>
+  <tr><td>Vehicle: </td><td>${body.vehicle}</td></tr>
+  <tr><td>Type of Vehicle: </td><td>${body.vehicleType}</td></tr>
+  <tr><td>Rego #: </td><td>${body.rego}</td></tr>
+  <tr><td>Mileage: </td><td>${body.mileage}</td></tr>
+  <tr><td>Transmission: </td><td>${body.transmission}</td></tr>
+  <tr><td>Fuel: </td><td>${body.fuel}</td></tr>
+  <tr><th style="text-align: left" colspan="2"><h4>Attachments</h4></th></tr>
+  </table>
+  ${safeAttribute(uploads)}
+  <h4>Message</h4>
+  <p>${body.message}</p>
+  `
 
   transporter.sendMail({
       from: `"PawnHub Online" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_TEST,
       subject: 'PawnHub Application',
-      text: event.body
+      text: event.body,
+      html: safeHtml.$
   }, function(error, info) {
     if (error) {
       callback(error);
