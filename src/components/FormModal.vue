@@ -4,6 +4,7 @@
     v-bind="$attrs"
     :focus-trap="true"
     :click-to-close="false"
+    :esc-to-close="true"
     overlay-class="backdrop-blur-lg"
     classes="flex justify-center items-center mx-auto overflow-y-auto absolute top-0 bottom-0 my-2"
     content-class="absolute top-0 flex flex-col bg-white max-w-lg"
@@ -13,7 +14,7 @@
       Online Application
       <button @click="$emit('cancel', close)"
         type="button"
-        class="inline-flex shadow-md justify-center p-2 px-3 bg-orange-200 border border-transparent rounded-md hover:bg-orange-400 text-orange-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+        class="inline-flex shadow-md justify-center p-2 px-3 bg-orange-200 border border-transparent hover:bg-orange-400 text-orange-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
       >
       <i class="far fa-times"></i>
       </button>
