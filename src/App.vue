@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-stone-900 min-h-screen grid app">
+  <div class="bg-zinc-900 min-h-screen grid app">
     <nav-bar></nav-bar>
 
     <main-modal name="form" v-model="show" @cancel="cancel" :transition="{

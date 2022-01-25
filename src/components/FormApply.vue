@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 gap-y-8 mt-2">
-      <div class="flex w-full relative text-stone-500 focus-within:text-amber-500">
+      <div class="flex w-full relative text-zinc-500 focus-within:text-amber-500">
         <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
         <span class="text-amber-500 opacity-50">/</span>
         <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="my-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
@@ -40,7 +40,7 @@
         <input ref="license" id="license" name="license" type="text" maxlength="14" v-model="form.license" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('license') }" placeholder=" " @input="removeError('license')" />
         <label for="license" class="my-label">License #</label>
       </div>
-      <div class="flex w-full relative text-stone-500 focus-within:text-amber-500">
+      <div class="flex w-full relative text-zinc-500 focus-within:text-amber-500">
         <input ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <span class="text-amber-500 opacity-50">/</span>
         <input ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="number" placeholder="MM" class="my-input w-[30%]" v-model.number="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
@@ -100,7 +100,7 @@
     </div>
     <div class="w-full flex flex-col relative my-4 mt-10">
       <input class="accent-amber-500 peer" type="range" name="amount" id="amount" min="5000" max="50000" step="2500" v-model.number="form.amount">
-      <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-stone-500 text-sm transition-all peer-focus:text-amber-400 peer-hover:text-amber-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-amber-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
+      <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-zinc-500 text-sm transition-all peer-focus:text-amber-400 peer-hover:text-amber-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-amber-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
     </div>
 
     <div class="flex flex-col gap-2">
@@ -115,14 +115,14 @@
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <div @click.prevent="openCloudWidget" class="flex border border-stone-400 bg-stone-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
-      <span class="px-2 text-stone-500 group-hover:text-stone-700 ">Optional - Image Upload</span>
+    <div @click.prevent="openCloudWidget" class="flex border border-zinc-400 bg-zinc-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+      <span class="px-2 text-zinc-500 group-hover:text-zinc-700 ">Optional - Image Upload</span>
       <div class="bg-amber-500 group-hover:bg-amber-400 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </div>
 
     <div class="flex flex-col relative my-4 pt-1">
       <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message" placeholder=" "></textarea>
-      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
+      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
     <button @click.prevent="validate()" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT FOR APPROVAL</button>
@@ -430,7 +430,7 @@
   }
 
   .my-input {
-    @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 border-amber-500/50
+    @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-zinc-900 px-1 border-amber-500/50
   }
 
   .my-input:focus {
@@ -442,10 +442,10 @@
   }
 
   .my-label {
-    @apply px-1 pointer-events-none absolute left-0 -top-4 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
+    @apply px-1 pointer-events-none absolute left-0 -top-4 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
   }
 
   .my-label.label-initial {
-    @apply text-stone-500 top-2 text-sm peer-focus:text-xs
+    @apply text-zinc-500 top-2 text-sm peer-focus:text-xs
   }
 </style>

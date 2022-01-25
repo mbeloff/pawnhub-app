@@ -15,9 +15,9 @@
       </div>
     </div>
 
-    <div class="bg-stone-800">
+    <div class="bg-zinc-800">
       <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
-        <div class="text-stone-100 flex flex-col gap-3 lg:w-4/5 ml-auto">
+        <div class="text-zinc-100 flex flex-col gap-3 lg:w-4/5 ml-auto">
           <h1 class="text-amber-500 font-medium text-4xl mb-0">
             Get the money you need <span class="italic font-bold">today</span>
           </h1>
@@ -36,9 +36,9 @@
     </div>
 
     <div class="svg-back relative border-t-4 border-amber-500">
-      <div class="absolute w-full h-full bg-stone-900/80"></div>
+      <div class="absolute w-full h-full bg-zinc-900/80"></div>
       <div class="content-box grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div v-for="card in cards" :key="card.title" class="backdrop-blur-sm bg-black/20 rounded-lg flex items-center flex-col text-stone-100 py-2">
+        <div v-for="card in cards" :key="card.title" class="backdrop-blur-sm bg-black/20 rounded-lg flex items-center flex-col text-zinc-100 py-2">
           <icon-stack :icon="card.icon"></icon-stack>
           <div class="px-4 text-center">
             <h3 class="text-amber-500 font-bold text-lg mb-2">{{card.title}}</h3>
@@ -57,7 +57,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-stone-900">
+  <div class="bg-zinc-900">
     <div class="container mx-auto py-20 px-2 flex flex-col gap-4">
       <p class="text-amber-500 font-medium text-4xl mb-10">Getting a cash loan with PawnHub couldn't be easier</p>
       <div class="flex">
@@ -90,7 +90,7 @@
       </div>      
     </div>
   </div>
-  <div class="h-screen bg-stone-900"></div>
+  <div class="h-screen bg-zinc-900"></div>
 </template>
 
 <script>

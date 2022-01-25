@@ -7,7 +7,7 @@
     :esc-to-close="true"
     overlay-class="backdrop-blur-lg"
     classes="flex justify-center items-center mx-auto overflow-y-auto absolute top-0 bottom-0 my-2"
-    content-class="absolute top-0 flex flex-col bg-stone-200 max-w-lg"
+    content-class="absolute top-0 flex flex-col bg-zinc-200 max-w-lg"
   >
   <div class="bg-amber-500 z-50 w-full p-2 top-0 left-0">
     <h2 class="text-xl font-bold leading-6 flex items-center justify-between text-white">

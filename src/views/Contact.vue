@@ -1,6 +1,6 @@
 <template>
   <div class="py-20 bg-white h-full bg-gradient-to-t 
-  from-stone-900 to-stone-800 relative">
+  from-zinc-900 to-zinc-800 relative">
 
     <div class="container mx-auto px-2">
         <contact-form class=""></contact-form>

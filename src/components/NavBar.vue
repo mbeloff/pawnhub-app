@@ -1,7 +1,7 @@
 <template>
 <header id="nav" class="fixed w-screen top-0 z-50 shadow-lg">
 <div class="w-full overflow-x-hidden ">
-  <div class="bg-stone-900/90 backdrop-blur w-full h-20 shadow-xl border-b border-stone-100/5">
+  <div class="bg-zinc-900/90 backdrop-blur w-full h-20 shadow-xl border-b border-zinc-100/5">
     <div class="flex justify-between container px-4 mx-auto h-full items-center">
       <router-link :to="{name: 'Home'}"><img src="../assets/pawnhub_logo.svg" alt="" class="w-24 mr-2"></router-link> 
       <div class="flex items-center h-full">
@@ -11,9 +11,9 @@
       
     </div>
   </div>
-  <div class="backdrop-blur bg-stone-800/80 transition-transform translate-x-0 shadow-lg shadow-black" :class="{'hide': hide}">
+  <div class="backdrop-blur bg-zinc-800/80 transition-transform translate-x-0 shadow-lg shadow-black" :class="{'hide': hide}">
     <div class="container mx-auto flex" :class="{ 'md:flex hidden' : hide }">
-      <div class="text-stone-300 flex flex-col w-full md:flex-row text-sm py-2 md:py-0" >
+      <div class="text-zinc-300 flex flex-col w-full md:flex-row text-sm py-2 md:py-0" >
         <router-link class="nav-item" :to="{name: 'Home'}">Home</router-link>
         <router-link class="nav-item" :to="{name: 'About'}">About</router-link>
         <router-link class="nav-item" :to="{name: ''}">Cash for Cars</router-link>
@@ -51,6 +51,6 @@ export default {
   }
 
   .nav-item:hover {
-    @apply bg-amber-500 text-stone-900
+    @apply bg-amber-500 text-zinc-900
   }
 </style>
