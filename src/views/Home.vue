@@ -71,7 +71,7 @@
         <p class="text-8xl text-amber-300 mr-3 w-20 flex-none">2</p>
         <div>
           <p class="text-amber-200 text-xl font-bold">Drop in</p>
-         <p class="text-white">Bring in your vehicle, along with 2 forms of ID.</p>
+         <p class="text-white">Bring in your vehicle, along with 2 forms of ID (Including 1 photo ID).</p>
         </div>     
       </div>
       <div class="flex">

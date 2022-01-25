@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-stone-900">
+  <div class="bg-stone-900 min-h-screen grid app">
     <nav-bar></nav-bar>
 
     <form-modal name="form" v-model="show" @cancel="cancel" :transition="{
@@ -28,9 +28,9 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
-        <p class="text-xl font-bold leading-6 text-orange-500">Application Received</p>
+        <p class="text-xl font-bold leading-6 text-amber-500">Application Received</p>
         <p>We will be in touch shortly</p>
-        <button @click.prevent="closeAll" class="bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-orange-400 px-6 w-max mx-auto">Okay</button>
+        <button @click.prevent="closeAll" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white rounded hover:bg-amber-400 px-6 w-max mx-auto">Okay</button>
       </div>
     </vue-final-modal>
 
@@ -68,7 +68,7 @@
         // this.$vfm.hide('confirmation').then(this.$vfm.hide('form'))
         this.$vfm.hide('form')
         // this.$vfm.hide('confimation')
-        setTimeout(this.closeConfirmation, 1000)
+        setTimeout(this.closeConfirmation, 500)
         
       },
       closeConfirmation() {
@@ -90,5 +90,9 @@
 <style>
   * {
     scroll-behavior: smooth
+  }
+
+  .app {
+    grid-template-rows:  1fr auto
   }
 </style>

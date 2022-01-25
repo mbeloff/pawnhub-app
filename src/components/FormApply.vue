@@ -1,7 +1,7 @@
 <template>
   <form ref="appForm" class="grid gap-5">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6">
-      <span class="col-span-full text-sm my-4 uppercase text-orange-500 text-center">Personal Details</span>
+      <span class="col-span-full text-sm my-4 uppercase text-amber-500 text-center">Personal Details</span>
       <div class="relative">
         <input ref="firstName" id="firstName" name="firstName" type="text" v-model="form.firstName" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('firstName') }" placeholder=" " @input="removeError('firstName')" />
         <label for="firstName" class="my-label">First Name</label>
@@ -20,7 +20,7 @@
       </div>
       <div class="relative">
         <input ref="address" id="address" name="address" type="text" v-model="form.address" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('address') }" placeholder=" " @input="removeError('address')" />
-        <label for="address" class="my-label">Street Address</label>
+        <label for="address" class="my-label">Address</label>
       </div>
       <div class="relative">
         <input ref="postcode" id="postcode" name="postcode" type="text" v-model="form.postcode" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('postcode') }" placeholder=" " @input="removeError('postcode')" />
@@ -28,11 +28,11 @@
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 gap-y-8 mt-2">
-      <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">
+      <div class="flex w-full relative text-stone-500 focus-within:text-amber-500">
         <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
-        <span class="text-orange-500 opacity-50">/</span>
+        <span class="text-amber-500 opacity-50">/</span>
         <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="my-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
-        <span class="text-orange-500 opacity-50">/</span>
+        <span class="text-amber-500 opacity-50">/</span>
         <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'invalid' : isInvalid('dobY')}" autocomplete="bday-year">
         <label class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
       </div>
@@ -40,17 +40,17 @@
         <input ref="license" id="license" name="license" type="text" maxlength="14" v-model="form.license" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('license') }" placeholder=" " @input="removeError('license')" />
         <label for="license" class="my-label">License #</label>
       </div>
-      <div class="flex w-full relative text-stone-500 focus-within:text-orange-500">
+      <div class="flex w-full relative text-stone-500 focus-within:text-amber-500">
         <input ref="expD" id="expD" @focus="$event.target.select()" maxlength="2" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.expD" @input="handleInput($event,'expM'), removeError('expD')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
-        <span class="text-orange-500 opacity-50">/</span>
+        <span class="text-amber-500 opacity-50">/</span>
         <input ref="expM" id="expM" @focus="$event.target.select()" maxlength="2" type="number" placeholder="MM" class="my-input w-[30%]" v-model.number="form.expM" @input="handleInput($event, 'expY'), removeError('expM')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
-        <span class="text-orange-500 opacity-50">/</span>
+        <span class="text-amber-500 opacity-50">/</span>
         <input ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.expY" @input="handleInput, removeError('expY')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6">
-      <span class="col-span-full text-sm my-4 uppercase text-orange-500 text-center">Vehicle Details</span>
+      <span class="col-span-full text-sm my-4 uppercase text-amber-500 text-center">Vehicle Details</span>
       <div class="relative">
         <input ref="make" id="make" name="make" type="text" v-model="form.make" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('make') }" placeholder=" " @input="removeError('make')" />
         <label for="make" class="my-label">Vehicle Make</label>
@@ -99,33 +99,33 @@
       </div>
     </div>
     <div class="w-full flex flex-col relative my-4 mt-10">
-      <input class="accent-orange-500 peer" type="range" name="amount" id="amount" min="5000" max="50000" step="2500" v-model.number="form.amount">
-      <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-stone-500 text-sm transition-all peer-focus:text-orange-400 peer-hover:text-orange-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-orange-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
+      <input class="accent-amber-500 peer" type="range" name="amount" id="amount" min="5000" max="50000" step="2500" v-model.number="form.amount">
+      <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-stone-500 text-sm transition-all peer-focus:text-amber-400 peer-hover:text-amber-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-amber-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
     </div>
 
     <div class="flex flex-col gap-2">
       <label for="accept1" class="flex gap-3 items-center p-1" :class="{ 'text-red-500 border border-red-500  rounded' : isInvalid('accept1')}">
 
-        <input type="checkbox" name="accept1" id="accept1" class="accent-orange-600 scale-[1.5]" v-model="form.accept1" @change="removeError('accept1')">
+        <input type="checkbox" name="accept1" id="accept1" class="accent-amber-400 scale-[1.5]" v-model="form.accept1" @change="removeError('accept1')">
 
         <span class="text-sm italic tracking-tight leading-tight font-light">My vehicle is unencumbered, registered and in a roadworthy condition</span>
       </label>
       <label for="accept2" class="flex gap-3 items-center p-1" :class="{ 'text-red-500 border border-red-500 rounded' : isInvalid('accept2')}">
-        <input type="checkbox" name="accept2" id="accept2" class="accent-orange-600 scale-[1.5]" v-model="form.accept2" @change="removeError('accept2')">
+        <input type="checkbox" name="accept2" id="accept2" class="accent-amber-400 scale-[1.5]" v-model="form.accept2" @change="removeError('accept2')">
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <div @click.prevent="openCloudWidget" class="flex border rounded-lg h-10 items-center justify-between hover:border-orange-500 focus:border-orange-500 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
-      <span class="px-2 text-stone-500 group-hover:text-stone-700">Optional - Image Upload</span>
-      <div class="bg-orange-500 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
+    <div @click.prevent="openCloudWidget" class="flex border border-stone-400 bg-stone-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+      <span class="px-2 text-stone-500 group-hover:text-stone-700 ">Optional - Image Upload</span>
+      <div class="bg-amber-500 group-hover:bg-amber-400 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </div>
 
     <div class="flex flex-col relative my-4 pt-1">
       <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message" placeholder=" "></textarea>
-      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400" :class="{'top-2': !message}">Message</label>
+      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
-    <button @click.prevent="validate()" class="bg-orange-500 shadow-lg shadow-orange-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-orange-400">SUBMIT FOR APPROVAL</button>
+    <button @click.prevent="validate()" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT FOR APPROVAL</button>
 
   </form>
 </template>
@@ -173,11 +173,14 @@
           transmission: "Manual",
           fuel: "Petrol",
           vehicleType: "",
-          amount: 20000,          
+          amount: 20000,
           accept1: true,
           accept2: true,
         },
-        uploads: [{"thumb":"https://res.cloudinary.com/pawnhub/image/upload/c_limit,h_60,w_90/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg","url":"https://res.cloudinary.com/pawnhub/image/upload/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg"}],
+        uploads: [{
+          "thumb": "https://res.cloudinary.com/pawnhub/image/upload/c_limit,h_60,w_90/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg",
+          "url": "https://res.cloudinary.com/pawnhub/image/upload/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg"
+        }],
         message: "tessst message",
         errors: []
       }
@@ -209,8 +212,9 @@
       validate() {
         this.errors = []
         for (let [key, value] of Object.entries(this.form)) {
-          if (value == "" || value == false)
-          {this.errors.push(key)}
+          if (value == "" || value == false) {
+            this.errors.push(key)
+          }
         }
 
         if (this.errors.length) {
@@ -241,7 +245,7 @@
           document.getElementById(ref).focus()
         }
       },
-      
+
       openCloudWidget() {
         window.cloudinary.openUploadWidget({
             cloud_name: 'pawnhub',
@@ -250,7 +254,31 @@
             sources: ['camera', 'local'],
             default_source: 'local',
             multiple: true,
-            folder: 'application_uploads/' + this.uid
+            folder: 'application_uploads/' + this.uid,
+            styles: {
+              palette: {
+                window: "#2B2825",
+                sourceBg: "#3E3B3B",
+                windowBorder: "#90a0b3",
+                tabIcon: "#FFA40A",
+                inactiveTabIcon: "#AD9B86",
+                menuIcons: "#FFA40A",
+                link: "#FFD458",
+                action: "#FF870A",
+                inProgress: "#FFA40A",
+                complete: "#1DA0D6",
+                error: "#c43737",
+                textDark: "#000000",
+                textLight: "#FFFFFF"
+              },
+              fonts: {
+                default: null,
+                "'Poppins', sans-serif": {
+                  url: "https://fonts.googleapis.com/css?family=Poppins",
+                  active: true
+                }
+              }
+            }
           },
           (error, result) => {
             if (!error && result && result.event === "success") {
@@ -269,7 +297,7 @@
           redirect: 'follow'
         };
         fetch(
-          import.meta.env.VITE_HOST + "/.netlify/functions/sendmail", requestOptions)
+            import.meta.env.VITE_HOST + "/.netlify/functions/sendmail", requestOptions)
           .then(response => response.text())
           .then(result => {
             if (result == 'Ok') {
@@ -284,7 +312,7 @@
             console.log('failed to submit: ', error)
           });
       },
-      
+
     },
     computed: {
       dob() {
@@ -304,7 +332,7 @@
           return date.toLocaleDateString() + ' (**expired)'
         }
       },
-      dobString() {        
+      dobString() {
         let year = new Date().getFullYear() - 18
         let month = new Date().getMonth()
         let day = new Date().getDate()
@@ -318,21 +346,21 @@
       emailBody() {
         let json = {
           requestedAmount: '$' + this.form.amount.toLocaleString(),
-            name: this.form.firstName + ' ' + this.form.lastName,
-            phone: this.form.phone,
-            email: this.form.email,
-            address: this.form.address + ', ' + this.form.postcode,
-            dob: this.dobString,
-            license: this.form.license,
-            expiry: this.licenseExpiry,
-            vehicle: this.form.year + ' ' + this.form.make + ' ' + this.form.model,
-            vehicleType: this.form.vehicleType,
-            rego: this.form.rego,
-            mileage: this.form.kms,
-            transmission: this.form.transmission,
-            fuel: this.form.fuel,
-            message: this.message,
-            uploads: this.uploads
+          name: this.form.firstName + ' ' + this.form.lastName,
+          phone: this.form.phone,
+          email: this.form.email,
+          address: this.form.address + ', ' + this.form.postcode,
+          dob: this.dobString,
+          license: this.form.license,
+          expiry: this.licenseExpiry,
+          vehicle: this.form.year + ' ' + this.form.make + ' ' + this.form.model,
+          vehicleType: this.form.vehicleType,
+          rego: this.form.rego,
+          mileage: this.form.kms,
+          transmission: this.form.transmission,
+          fuel: this.form.fuel,
+          message: this.message,
+          uploads: this.uploads
         }
         return json
       }
@@ -405,19 +433,19 @@
   }
 
   .my-input {
-   @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 border-orange-500/50
+    @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-stone-900 px-1 border-amber-500/50
   }
 
   .my-input:focus {
-    @apply border-orange-500 outline-none ring-transparent
+    @apply border-amber-500 outline-none ring-transparent
   }
 
   .my-input.invalid {
     @apply border-b-4 border-red-500
   }
 
-  .my-label  {
-    @apply px-1 pointer-events-none absolute left-0 -top-3.5 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-orange-400 peer-focus:text-xs
+  .my-label {
+    @apply px-1 pointer-events-none absolute left-0 -top-4 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
   }
 
   .my-label.label-initial {
