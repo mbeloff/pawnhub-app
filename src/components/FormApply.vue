@@ -151,37 +151,34 @@
           "'22", "'21", "'20", "'19", "'18", "'17", "'16", "'15", "'14", "'13", "'12", "'11", "'10", "'09", "'08", "'07", "'06", "'05", "'04", "'03", "'02", "'01", "'00", "'99", "'98", "'97", "'96", "'95", "'94", "'93", "'92", "'91", "'90", "'89", "'88", "'87", "'86", "'85", "'84", "'83", "'82", "'81", "'80", "'79", "'78", "'77", "'76", "'75", "'74", "'73", "'72", "'71", "'70", "'69", "'68", "'67", "'66", "'65", "'64", "'63", "'62", "'61", "'60", "'59", "'58", "'57", "'56", "'55", "'54", "'53", "'52", "'51", "'50"
         ],
         form: {
-          firstName: "M",
-          lastName: "Test",
-          email: "mail@test.com",
-          phone: "+61 123 8763",
-          address: "22 Uajbai st",
-          postcode: "5234",
-          dobD: "18",
-          dobM: "01",
-          dobY: "1985",
-          license: "0072341223",
-          expD: "01",
-          expM: "07",
-          expY: "2024",
-          make: "VW",
-          model: "Golf GTI",
-          year: "'19",
-          rego: "123ABC",
-          kms: "40000",
-          condition: "Excellent",
-          transmission: "Manual",
-          fuel: "Petrol",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          address: "",
+          postcode: "",
+          dobD: "",
+          dobM: "",
+          dobY: "",
+          license: "",
+          expD: "",
+          expM: "",
+          expY: "",
+          make: "",
+          model: "",
+          year: "",
+          rego: "",
+          kms: "",
+          condition: "",
+          transmission: "",
+          fuel: "",
           vehicleType: "",
           amount: 20000,
-          accept1: true,
-          accept2: true,
+          accept1: false,
+          accept2: false,
         },
-        uploads: [{
-          "thumb": "https://res.cloudinary.com/pawnhub/image/upload/c_limit,h_60,w_90/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg",
-          "url": "https://res.cloudinary.com/pawnhub/image/upload/v1642721051/application_uploads/1642721040240/kabxitiewhk8imhrg5ky.jpg"
-        }],
-        message: "tessst message",
+        uploads: [],
+        message: "",
         errors: []
       }
     },
@@ -298,21 +295,21 @@
         };
         fetch(
             import.meta.env.VITE_HOST + "/.netlify/functions/sendmail", requestOptions)
-          .then(response => response.text())
+          .then(response =>{
+            if(response.ok){return response.text()}
+            throw new Error(response.statusText)
+          })
           .then(result => {
-            if (result == 'Ok') {
-              this.$vfm.show('confirmation')
+            if (result == 'Ok') {              
+              this.$vfm.show('dialog-confirmation')
               console.log('Submission Successful')
             }
           })
           .catch(error => {
-
-            // TODO error/retry dialog
-
+            this.$vfm.show('dialog-error')
             console.log('failed to submit: ', error)
           });
       },
-
     },
     computed: {
       dob() {
