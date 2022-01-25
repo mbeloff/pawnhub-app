@@ -418,7 +418,7 @@
   }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -442,7 +442,7 @@
   }
 
   .my-label {
-    @apply px-1 pointer-events-none absolute left-0 -top-4 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
+    @apply px-1 pointer-events-none absolute left-0 -top-4 text-stone-500 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-stone-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
   }
 
   .my-label.label-initial {

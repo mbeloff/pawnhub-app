@@ -2,7 +2,7 @@
   <div class="bg-stone-900 min-h-screen grid app">
     <nav-bar></nav-bar>
 
-    <form-modal name="form" v-model="show" @cancel="cancel" :transition="{
+    <main-modal name="form" v-model="show" @cancel="cancel" :transition="{
         'enter-active-class': 'transition duration-200 ease-in-out transform',
         'enter-from-class': 'translate-y-full',
         'enter-to-class': 'translate-y-0',
@@ -11,7 +11,7 @@
         'leave-from-class': 'translate-y-0'
       }">
       <form-apply></form-apply>
-    </form-modal>
+    </main-modal>
 
     <vue-final-modal v-model="showConfirmation" name="dialog-confirmation" overlay-class="backdrop-blur-lg" :focus-trap="true" :click-to-close="false" :transition="{
         'enter-active-class': 'transition duration-200 ease-in-out transform',
@@ -63,13 +63,13 @@
   import NavBar from '@/components/NavBar.vue'
   import FootBar from '@/components/Footer.vue'
   import FormApply from '@/components/FormApply.vue'
-  import FormModal from '@/components/FormModal.vue'
+  import MainModal from '@/components/MainModal.vue'
   export default {
     components: {
       NavBar,
       FootBar,
       FormApply,
-      FormModal
+      MainModal
     },
     data: () => ({
       show: false,
