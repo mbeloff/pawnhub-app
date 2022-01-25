@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="bg-1 bg-cover bg-center py-20">
+    <div class="bg-1 bg-cover bg-center  py-20">
       <div class="container mx-auto lg:flex-col lg:items-center px-4 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
         <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
           Need Cash Fast?
           <br />
-          <div class="bg-black/50">
-            <span class="text-amber-300">Get a quick and easy cash loan against your vehicle <br>No credit checks. No proof of income.</span>   
+          <div class="bg-black/50 pr-5">
+            <span class="text-amber-300 text-3xl">Quick and easy cash loans against your vehicle. <br>No credit checks. No proof of income.</span>  
           </div>                 
         </h2>
         <div class="flex mt-8 lg:flex-shrink-0 z-2 ">
@@ -87,8 +87,7 @@
           <p class="text-amber-200 text-xl font-bold">Flexible payment options</p>
          <p class="text-white">We make it easy to make your loan repayments - pay via phone, in-store or online.</p>
         </div>     
-      </div>
-      
+      </div>      
     </div>
   </div>
   <div class="h-screen bg-stone-900"></div>
