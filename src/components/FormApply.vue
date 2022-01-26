@@ -413,6 +413,11 @@
           this.form.expY = 1
         }
       },
+      'form.license': function(newVal) {
+        if (newVal.length == 14) {
+          this.$refs.expD.focus()
+        }
+      }
     },
 
   }
