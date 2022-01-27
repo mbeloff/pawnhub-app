@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-1 bg-cover bg-center  py-20">
+    <div class="bg-1 bg-cover bg-center mix-blend-lighten py-20">
       <div class="container mx-auto lg:flex-col lg:items-center px-4 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
         <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
           Need Cash Fast?
@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-
     <div class="bg-zinc-800">
       <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
         <div class="text-zinc-100 flex flex-col gap-3 lg:w-4/5 ml-auto">
@@ -28,8 +27,8 @@
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Don't want to sell any assets, but need to pay overdue invoices?</p>
           <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
         </div>
-        <div class="w-full lg:w-4/5 lg:py-10 h-full mr-auto">
-          <img class="object-cover w-full h-full" src="https://res.cloudinary.com/dg5ybbkbh/image/upload/v1641957716/ph/hundreds.webp" alt="">
+        <div class="w-full lg:py-10 h-full mr-auto ">
+          <img class="object-cover w-full h-full rounded shadow-2xl" src="https://res.cloudinary.com/pawnhub/image/upload/f_auto,q_auto/c_scale,w_600/v1643253007/assets/ph_fp1" alt="">
         </div>
       </div>
 
@@ -42,65 +41,73 @@
           <icon-stack :icon="card.icon"></icon-stack>
           <div class="px-4 text-center">
             <h3 class="text-amber-500 font-bold text-lg mb-2">{{card.title}}</h3>
-            <p class="text-left py-4">{{card.text}}</p>
+            <p class="text-left py-4 text-zinc-100">{{card.text}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="bg-black text-white py-10 text-center gap-5 flex flex-col border-b-4 border-t-4 border-amber-500">
+    <div class="bg-black/50 py-10 text-center gap-5 flex flex-col border-b-4 border-t-4 border-amber-500/80 text-zinc-200">
       <p class="text-lg">Whatever your situation, we're here to help with <em>fast,</em> no-fuss cash loans</p>
       <p class="text-2xl">Interested? Get in touch today!</p>
       <div class="flex flex-col md:flex-row mx-auto gap-2 container max-w-2xl items-center">
-        <button class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase">1800 123 456</button>
-        <button class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase">Message Us Online</button>
+        <a :href="`tel:${common.phoneLand.replaceAll(' ','')}`" class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase">{{common.phoneLand}}</a>
+        <router-link :to="{name: 'Contact'}" class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase">Message Us Online</router-link>
         <button class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase" @click="$vfm.show('form')">Get a Quote</button>
       </div>
     </div>
   </div>
   <div class="bg-zinc-900">
     <div class="container mx-auto py-20 px-2 flex flex-col gap-4">
-      <p class="text-amber-500 font-medium text-4xl mb-10">Getting a cash loan with PawnHub couldn't be easier</p>
+      <div class="w-1/2 text-zinc-300">
+      <p class="text-amber-500/90 font-medium text-4xl mb-10">Getting a cash loan with PawnHub couldn't be easier</p>
       <div class="flex">
-        <p class="text-8xl text-amber-300 mr-3 w-20 flex-none">1</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">1</p>
         <div>
-          <p class="text-amber-200 text-xl font-bold">Get a quote</p>
-         <p class="text-white">Let us know about your vehicle and we'll give you a quick quote and pre-approval.</p>
+          <p class="text-amber-200/80 text-xl font-bold">Get a quote</p>
+         <p class="">Let us know about your vehicle and we'll give you a quick quote and pre-approval.</p>
         </div>     
       </div>
       <div class="flex">
-        <p class="text-8xl text-amber-300 mr-3 w-20 flex-none">2</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">2</p>
         <div>
-          <p class="text-amber-200 text-xl font-bold">Drop in</p>
-         <p class="text-white">Bring in your vehicle, along with 2 forms of ID (Including 1 photo ID).</p>
+          <p class="text-amber-200/80 text-xl font-bold">Drop in</p>
+         <p class="">Bring in your vehicle, along with 2 forms of ID (Including 1 photo ID).</p>
         </div>     
       </div>
       <div class="flex">
-        <p class="text-8xl text-amber-300 mr-3 w-20 flex-none">3</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">3</p>
         <div>
-          <p class="text-amber-200 text-xl font-bold">Get cash</p>
-         <p class="text-white">Get cash on the spot once your loan is approved.</p>
+          <p class="text-amber-200/80 text-xl font-bold">Get cash</p>
+         <p class="">Get cash on the spot once your loan is approved.</p>
         </div>     
       </div>
       <div class="flex">
-        <p class="text-8xl text-amber-300 mr-3 w-20 flex-none">4</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">4</p>
         <div>
-          <p class="text-amber-200 text-xl font-bold">Flexible payment options</p>
-         <p class="text-white">We make it easy to make your loan repayments - pay via phone, in-store or online.</p>
+          <p class="text-amber-200/80 text-xl font-bold">Flexible payment options</p>
+         <p class="">We make it easy to make your loan repayments - pay via phone, in-store or online.</p>
         </div>     
-      </div>      
+      </div> 
+      </div>
+           
     </div>
   </div>
   <div class="h-screen bg-zinc-900"></div>
 </template>
 
 <script>
+  import Common from '@/common.js'
   import IconStack from '@/components/IconStack.vue'
   export default {
+    mounted() {
+      window.scrollTo(0, 0)
+    },
     components: {
       IconStack
     },
     data() {
       return {
+        common: Common,
         cards: [{
             title: "Fast Approval",
             text: "Get a hassle-free loan against your vehicle today.",

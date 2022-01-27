@@ -1,11 +1,11 @@
 <template>
-<header id="nav" class="fixed w-screen top-0 z-50 shadow-lg">
+<header id="nav" class="fixed w-screen top-0 z-50 shadow-lg shadow-black/30">
 <div class="w-full overflow-x-hidden ">
   <div class="bg-zinc-900/90 backdrop-blur w-full h-20 shadow-xl border-b border-zinc-100/5">
     <div class="flex justify-between container px-4 mx-auto h-full items-center">
       <router-link :to="{name: 'Home'}"><img src="../assets/pawnhub_logo.svg" alt="" class="w-24 mr-2"></router-link> 
       <div class="flex items-center h-full">
-        <a href="" class="text-lg text-amber-500 font-black min-w-max">1800 123 456</a>
+        <a :href="`tel:${common.phoneLand.replaceAll(' ', '')}`" class="text-lg text-amber-500 font-black min-w-max">{{common.phoneLand}}</a>
       <icon-stack class="md:hidden -mr-3" @click="hide = !hide" :icon="'bars'" :size="'fa-2x'" :bg="'text-black/30'"></icon-stack>
       </div>
       
@@ -29,12 +29,14 @@
 </template>
 
 <script>
+import Common from '@/common.js'
 import IconStack from "@/components/IconStack.vue"
 export default {
   components: {IconStack},
   data() {
     return {
-      hide: true
+      hide: true,
+      common: Common
     }
   }
 }

@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <div class="bg-gray-50">
     <div
@@ -10,3 +7,11 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    window.scrollTo(0, 0)
+  },
+}
+</script>

@@ -12,5 +12,7 @@ const router = createRouter({
   routes,
 })
 
+
+
 app.use(router).use(vfmPlugin)
 app.mount('#app')

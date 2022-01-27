@@ -19,14 +19,14 @@
         <label for="phone" class="my-label">Phone</label>
       </div>
 
-      <fieldset class="col-span-2 grid grid-cols-2 gap-4">
-        <legend class="text-zinc-300 text-sm">Preferred contact method</legend>
+      <fieldset class="col-span-2 grid grid-cols-2 gap-4 focus-within:text-amber-600 text-zinc-300">
+        <legend class=" text-sm">Preferred contact method</legend>
         <label for="cPhone" class="text-zinc-300 text-sm my-2">
-          <input type="radio" class="accent-amber-400 scale-[1.5] mr-2 checked:before:absolute before:inset-0 before:z-[-10] before:w-full before:h-full before:rounded-full before:shadow-lg before:shadow-amber-500 before:bg-gradient-to-r before:from-lime-400 before:to-amber-500" id="cPhone" v-model="preferredContact" value="Contact me by phone">
+          <input type="radio" class="accent-amber-400 scale-[1.5] mr-2 checked:before:absolute before:inset-0 before:z-[-10] before:w-full before:h-full before:rounded-full before:shadow-lg before:shadow-amber-500 before:bg-gradient-to-r before:from-lime-400 before:to-amber-500 focus:outline-none" id="cPhone" v-model="preferredContact" value="phone">
           Phone
         </label>
         <label for="cEmail" class="text-zinc-300 text-sm my-2">
-          <input type="radio" class="accent-amber-400 scale-[1.5] mr-2 checked:before:absolute before:inset-0 before:z-[-10] before:w-full before:h-full before:rounded-full before:shadow-lg before:shadow-amber-500 before:bg-gradient-to-r before:from-lime-400 before:to-amber-500" id="cEmail" v-model="preferredContact" value="Contact me by email">
+          <input type="radio" class="accent-amber-400 scale-[1.5] mr-2 checked:before:absolute before:inset-0 before:z-[-10] before:w-full before:h-full before:rounded-full before:shadow-lg before:shadow-amber-500 before:bg-gradient-to-r before:from-lime-400 before:to-amber-500 focus:outline-none" id="cEmail" v-model="preferredContact" value="email">
           Email
         </label>
 
@@ -50,7 +50,7 @@
         phone: "",
         email: "",
         message: "",
-        preferredContact: "",
+        preferredContact: "email",
       }
     }
   }

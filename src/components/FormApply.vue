@@ -115,10 +115,10 @@
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <div @click.prevent="openCloudWidget" class="flex border border-zinc-400 bg-zinc-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+    <button @click.prevent="openCloudWidget" class="flex border border-zinc-400 bg-zinc-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
       <span class="px-2 text-zinc-500 group-hover:text-zinc-700 ">Optional - Image Upload</span>
       <div class="bg-amber-500 group-hover:bg-amber-400 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
-    </div>
+    </button>
 
     <div class="flex flex-col relative my-4 pt-1">
       <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message" placeholder=" "></textarea>

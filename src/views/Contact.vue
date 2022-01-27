@@ -11,7 +11,10 @@
 <script>
 import ContactForm from '@/components/FormContact.vue'
 export default {
-  components: {ContactForm}
+  components: {ContactForm},
+  mounted() {
+      window.scrollTo(0, 0)
+    },
 }
 </script>
 
