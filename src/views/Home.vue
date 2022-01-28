@@ -2,30 +2,28 @@
   <div>
     <div class="bg-1 bg-cover bg-center mix-blend-lighten py-20">
       <div class="container mx-auto lg:flex-col lg:items-center px-4 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
-        <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
-          Need Cash Fast?
-          <br />
+        <div class="text-4xl mb-4 font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
+          <p class="mb-3">Need Cash Fast?</p>          
           <div class="bg-black/50 pr-5">
-            <span class="text-amber-300 text-3xl">Quick and easy cash loans against your vehicle. <br>No credit checks. No proof of income.</span>  
+            <h1 class="text-amber-300 text-3xl">Quick and easy cash loans against your vehicle. <br>No credit checks. No proof of income.</h1>  
           </div>                 
-        </h2>
+        </div>
         <div class="flex mt-8 lg:flex-shrink-0 z-2 ">
           <button @click="$vfm.show('form')" class="inline-flex items-center justify-center px-5 py-3 text-lg font-medium leading-6 border border-transparent focus:outline-none uppercase bg-amber-500 shadow-lg shadow-amber-500/30  transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">Apply Online</button>
         </div>
       </div>
     </div>
-    <div class="bg-zinc-800">
+    <div class="bg-gradient-to-b from-zinc-900 to-zinc-800">
       <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
-        <div class="text-zinc-100 flex flex-col gap-3 lg:w-4/5 ml-auto">
-          <h1 class="text-amber-500 font-medium text-4xl mb-0">
+        <div class="text-zinc-100 flex flex-col gap-3 lg:w-4/5 ml-auto font-light">
+          <h1 class="text-amber-500 font-medium text-4xl mb-4">
             Get the money you need <span class="italic font-bold">today</span>
           </h1>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or other expenses?</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Won a contract and need to purchase materials or hire more staff?</p>
-          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a commission payment but have bills to pay?</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Expecting a tax return but need cash now?</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Don't want to sell any assets, but need to pay overdue invoices?</p>
-          <p class="mt-10 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
+          <p class="mt-5 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
         </div>
         <div class="w-full lg:py-10 h-full mr-auto ">
           <img class="object-cover w-full h-full rounded shadow-2xl" src="https://res.cloudinary.com/pawnhub/image/upload/f_auto,q_auto/c_scale,w_600/v1643253007/assets/ph_fp1" alt="">

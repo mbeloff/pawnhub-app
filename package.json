@@ -7,6 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@vuelidate/core": "^2.0.0-alpha.34",
+    "@vuelidate/validators": "^2.0.0-alpha.26",
     "escape-html-template": "^1.4.2",
     "nodemailer": "^6.7.2",
     "vue": "^3.2.26",

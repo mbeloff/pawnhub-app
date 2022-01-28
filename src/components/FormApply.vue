@@ -294,7 +294,7 @@
           redirect: 'follow'
         };
         fetch(
-            import.meta.env.VITE_HOST + "/.netlify/functions/sendmail", requestOptions)
+            import.meta.env.VITE_HOST + "/.netlify/functions/emailapplication", requestOptions)
           .then(response =>{
             if(response.ok){return response.text()}
             throw new Error(response.statusText)

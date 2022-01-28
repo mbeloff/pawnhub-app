@@ -26,8 +26,8 @@ exports.handler = function(event, context, callback) {
   <tr><th style="text-align: left" colspan="2"><h4><br>Customer Details<br></h4><th></tr>
   <tr></tr>
   <tr><td>Name: </td><td>${body.name}</td></tr>
-  <tr><td>Email: </td><td>${body.email}</td></tr>
-  <tr><td>Phone: </td><td>${body.phone}</td></tr>
+  <tr><td>Email: </td><td><a href="mailto:${body.email}">${body.email}</a></td></tr>
+  <tr><td>Phone: </td><td><a href="tel:${body.phone}">${body.phone}</a></td></tr>
   <tr><td>Address: </td><td>${body.address}</td></tr>
   <tr><td>D.O.B. </td><td>${body.dob}</td></tr>
   <tr><td>License # </td><td>${body.license}</td></tr>
@@ -52,6 +52,7 @@ exports.handler = function(event, context, callback) {
 
   transporter.sendMail({
       from: `"PawnHub Online" <${process.env.MAIL_USER}>`,
+      replyTo: body.email,
       to: process.env.MAIL_TEST,
       subject: 'PawnHub Application',
       text: event.body,
