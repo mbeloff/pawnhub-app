@@ -19,10 +19,11 @@
           <h1 class="text-amber-500 font-medium text-4xl mb-4">
             Get the money you need <span class="italic font-bold">today</span>
           </h1>
+          <p>Borrow up to $100,000 </p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or other expenses?</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Won a contract and need to purchase materials or hire more staff?</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Expecting a tax return but need cash now?</p>
-          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Don't want to sell any assets, but need to pay overdue invoices?</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Have urgent bills to pay and don't want to sell any assets?</p>
           <p class="mt-5 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
         </div>
         <div class="w-full lg:py-10 h-full mr-auto ">

@@ -59,7 +59,10 @@ exports.handler = function(event, context, callback) {
       html: safeHtml.$
   }, function(error, info) {
     if (error) {
-      callback(error);
+      callback(null, {
+        statusCode: 500,
+        body: error.toString(),
+      });
     } else {
       callback(null, {
         statusCode: 200,

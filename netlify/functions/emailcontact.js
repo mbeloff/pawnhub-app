@@ -1,6 +1,10 @@
 const nodemailer = require('nodemailer');
 const html = require('escape-html-template');
-
+const headers = {
+  'Access-Control-Allow-Origin': process.env.VITE_HOST,
+  'Access-Control-Allow-Headers': 'Content-Type',
+  // 'Access-Control-Allow-Methods': 'GET'
+};
 exports.handler = function (event, context, callback) {
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_SMTP,
@@ -53,7 +57,10 @@ exports.handler = function (event, context, callback) {
     html: safeHtml.$
   }, function (error, info) {
     if (error) {
-      callback(error);
+      callback(null, {
+        statusCode: 500,
+        body: error.toString(),
+      });
     } else {
       callback(null, {
         statusCode: 200,

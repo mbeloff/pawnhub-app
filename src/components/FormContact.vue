@@ -99,10 +99,12 @@ import { required, requiredIf, email } from '@vuelidate/validators'
         fetch(
             import.meta.env.VITE_HOST + "/.netlify/functions/emailcontact", requestOptions)
           .then(response =>{
+            console.log(response)
             if(response.ok){return response.text()}
             throw new Error(response.statusText)
           })
           .then(result => {
+            console.log(result)
             if (result == 'Ok') {  
               this.form = {
                 name: "",
