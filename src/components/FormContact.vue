@@ -100,8 +100,9 @@ import { required, requiredIf, email } from '@vuelidate/validators'
             import.meta.env.VITE_HOST + "/.netlify/functions/emailcontact", requestOptions)
           .then(response =>{
             console.log(response)
+            console.log(response.text())
             if(response.ok){return response.text()}
-            throw new Error(response.statusText)
+            throw new Error(response)
           })
           .then(result => {
             console.log(result)

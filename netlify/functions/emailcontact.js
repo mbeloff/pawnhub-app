@@ -13,7 +13,7 @@ exports.handler = function (event, context, callback) {
     requireTLS: true,
     auth: {
       user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS
+      pass: process.env.MAIL_PASSs
     },
     tls: {
       rejectUnauthorized: false
@@ -64,6 +64,7 @@ exports.handler = function (event, context, callback) {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
+      console.log(error)
       callback(null, {
         statusCode: 500,
         body: error.toString(),
