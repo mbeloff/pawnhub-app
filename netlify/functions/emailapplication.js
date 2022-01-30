@@ -6,8 +6,6 @@ exports.handler = function(event, context, callback) {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_SMTP,
       port: 587,
-      secure: false,
-      requireTLS: true,
       auth: {
           user: process.env.MAIL_USER,
           pass: process.env.MAIL_PASS
@@ -63,6 +61,7 @@ exports.handler = function(event, context, callback) {
 
   transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
+      console.log(error)
       callback(null, {
         statusCode: 500,
         body: error.toString(),

@@ -99,8 +99,8 @@ import { required, requiredIf, email } from '@vuelidate/validators'
         fetch(
             import.meta.env.VITE_HOST + "/.netlify/functions/emailcontact", requestOptions)
           .then(response =>{
-            console.log(response)
-            console.log(response.text())
+            // console.log(response)
+            // console.log(response.text())
             if(response.ok){return response.text()}
             throw new Error(response)
           })
@@ -120,7 +120,7 @@ import { required, requiredIf, email } from '@vuelidate/validators'
           })
           .catch(error => {
             this.$vfm.show('dialog-error')
-            console.log('failed to submit: ', error)
+            // console.log('failed to submit: ', error)
           });
       },
     }
