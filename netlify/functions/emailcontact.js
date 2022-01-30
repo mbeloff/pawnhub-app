@@ -13,7 +13,7 @@ exports.handler = function (event, context, callback) {
     requireTLS: true,
     auth: {
       user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASSs
+      pass: process.env.MAIL_PASS
     },
     tls: {
       rejectUnauthorized: false
