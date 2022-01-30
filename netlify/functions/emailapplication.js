@@ -6,6 +6,8 @@ exports.handler = function(event, context, callback) {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_SMTP,
       port: 587,
+      secure: false,
+      requireTLS: true,
       auth: {
           user: process.env.MAIL_USER,
           pass: process.env.MAIL_PASS
@@ -50,14 +52,16 @@ exports.handler = function(event, context, callback) {
   <p>${body.message}</p>
   `
 
-  transporter.sendMail({
-      from: `"PawnHub Online" <${process.env.MAIL_USER}>`,
-      replyTo: body.email,
-      to: process.env.MAIL_TEST,
-      subject: 'PawnHub Application',
-      text: event.body,
-      html: safeHtml.$
-  }, function(error, info) {
+  let mailOptions = {
+    from: `"PawnHub Online" <${process.env.MAIL_USER}>`,
+    replyTo: body.email,
+    to: process.env.MAIL_TEST,
+    subject: 'PawnHub Application',
+    text: event.body,
+    html: safeHtml.$
+}
+
+  transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
       callback(null, {
         statusCode: 500,
