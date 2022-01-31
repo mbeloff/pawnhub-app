@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit()" data-netlify-recaptcha="true">
+  <form @submit.prevent="submit()" data-netlify="true" data-netlify-recaptcha="true">
     <div class="grid grid-cols-2 gap-4 gap-y-6 max-w-lg mx-auto py-10 bg-zinc-800 px-6 rounded border border-zinc-700">
       <div class="col-span-2 mb-4">
         <p class="text-2xl font-bold text-amber-500 ">Contact Us</p>
