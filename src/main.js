@@ -5,6 +5,7 @@ import { routes } from './routes.js'
 import { createRouter, createWebHistory } from 'vue-router'
 import { vfmPlugin } from 'vue-final-modal'
 
+
 const app = createApp(App)
 
 const router = createRouter({

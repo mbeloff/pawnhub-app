@@ -1,12 +1,12 @@
 <template>
-  <form @submit.prevent="submit()">
+  <form @submit.prevent="submit()" data-netlify-recaptcha="true">
     <div class="grid grid-cols-2 gap-4 gap-y-6 max-w-lg mx-auto py-10 bg-zinc-800 px-6 rounded border border-zinc-700">
       <div class="col-span-2 mb-4">
         <p class="text-2xl font-bold text-amber-500 ">Contact Us</p>
         <p class=" text-lg text-zinc-300">Please leave a message and we'll get back to you as soon as we can.</p>
       </div>
       <div class="relative col-span-2">
-        <input ref="name" id="name" name="name" type="text" v-model="form.name" class="my-input w-full peer" placeholder=" " :class="{error: v$.form.name.$errors.length}"/>
+        <input ref="name" id="name" name="name" type="text" v-model="form.name" class="my-input w-full peer" placeholder=" " :class="{error: v$.form.name.$errors.length}" />
         <label for="name" class="my-label">Your Name</label>
       </div>
       <div class="relative">
@@ -14,13 +14,13 @@
         <label for="email" class="my-label">Email</label>
       </div>
       <div class="relative">
-        <input ref="phone" id="phone" name="phone" type="tel" v-model="form.phone" class="my-input w-full peer" placeholder=" " :class="{error: v$.form.phone.$errors.length}"/>
+        <input ref="phone" id="phone" name="phone" type="tel" v-model="form.phone" class="my-input w-full peer" placeholder=" " :class="{error: v$.form.phone.$errors.length}" />
         <label for="phone" class="my-label">Phone</label>
       </div>
       <fieldset class="col-span-2 grid grid-cols-2 gap-4 focus-within:text-amber-600 text-zinc-300 border p-2 rounded border-transparent" :class="{error:v$.form.preferredContact.$errors.length}">
         <legend class=" text-xs text-amber-200">Preferred contact method</legend>
         <label for="cPhone" class="text-zinc-300 text-sm my-2">
-          <input type="radio" class="accent-amber-400 scale-[1.5] mr-2 checked:before:absolute before:inset-0 before:z-[-10] before:w-full before:h-full before:rounded-full before:shadow-lg before:shadow-amber-500 before:bg-gradient-to-r before:from-lime-400 before:to-amber-500 focus:outline-none" id="cPhone" v-model="form.preferredContact" value="phone" >
+          <input type="radio" class="accent-amber-400 scale-[1.5] mr-2 checked:before:absolute before:inset-0 before:z-[-10] before:w-full before:h-full before:rounded-full before:shadow-lg before:shadow-amber-500 before:bg-gradient-to-r before:from-lime-400 before:to-amber-500 focus:outline-none" id="cPhone" v-model="form.preferredContact" value="phone">
           Phone
         </label>
         <label for="cEmail" class="text-zinc-300 text-sm my-2">
@@ -28,12 +28,17 @@
           Email
         </label>
       </fieldset>
-      <div class="flex flex-col relative my-4 pt-1 col-span-2">
+      <div class="flex flex-col relative mt-4 pt-1 col-span-2">
         <textarea ref="message" name="message" id="message" cols="30" rows="3" class=" border-b-2 border-amber-500 p-2 peer" v-model="form.message" placeholder=" " :class="{error: v$.form.message.$errors.length}"></textarea>
         <label for="message" class="px-1 pointer-events-none absolute left-0 -top-4 text-amber-200 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-200 peer-focus:text-xs" :class="{'top-2': !form.message}">Message</label>
       </div>
+      <div class="col-span-full text-xs text-zinc-400 italic -mt-4 opacity-70">
+        This site is protected by reCAPTCHA and the Google
+        <a class="text-blue-400" href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a class="text-blue-400" href="https://policies.google.com/terms">Terms of Service</a> apply.
+      </div>
       <div class="col-span-2" v-if="v$.$errors.length">
-        <p class="text-red-500" >Please complete all required info</p>
+        <p class="text-red-500">Please complete all required info</p>
       </div>
       <button type="submit" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT</button>
     </div>
@@ -41,12 +46,18 @@
 </template>
 
 <script>
-import useVuelidate from '@vuelidate/core'
-import { required, requiredIf, email } from '@vuelidate/validators'
+  import useVuelidate from '@vuelidate/core'
+  import {
+    required,
+    requiredIf,
+    email
+  } from '@vuelidate/validators'
   export default {
-     setup () {
-    return { v$: useVuelidate() }
-  },
+    setup() {
+      return {
+        v$: useVuelidate()
+      }
+    },
     data() {
       return {
         form: {
@@ -56,7 +67,7 @@ import { required, requiredIf, email } from '@vuelidate/validators'
           message: "",
           preferredContact: ""
         }
-        
+
       }
     },
     validations() {
@@ -68,7 +79,7 @@ import { required, requiredIf, email } from '@vuelidate/validators'
           preferredContact: {
             required
           },
-          phone: {    
+          phone: {
             required: requiredIf(this.form.preferredContact == 'phone'),
           },
           email: {
@@ -79,11 +90,11 @@ import { required, requiredIf, email } from '@vuelidate/validators'
             required
           },
         }
-        
+
       }
     },
     methods: {
-      async submit () {
+      async submit() {
         const result = await this.v$.$validate()
         if (!result) {
           return
@@ -98,22 +109,24 @@ import { required, requiredIf, email } from '@vuelidate/validators'
         };
         fetch(
             import.meta.env.VITE_HOST + "/.netlify/functions/emailcontact", requestOptions)
-          .then(response =>{
+          .then(response => {
             // console.log(response)
             // console.log(response.text())
-            if(response.ok){return response.text()}
+            if (response.ok) {
+              return response.text()
+            }
             throw new Error(response)
           })
           .then(result => {
             console.log(result)
-            if (result == 'Ok') {  
+            if (result == 'Ok') {
               this.form = {
                 name: "",
                 email: "",
                 phone: "",
                 message: "",
                 preferredContact: "",
-              }    
+              }
               this.v$.$reset()
               this.$vfm.show('dialog-confirmation')
             }
@@ -131,9 +144,11 @@ import { required, requiredIf, email } from '@vuelidate/validators'
   .my-label {
     @apply text-amber-200 peer-focus:text-amber-200
   }
+
   .error {
     @apply border-b-4 border-red-500
   }
+
   fieldset.error {
     @apply border-red-500 border-b
   }

@@ -113,4 +113,6 @@
   .app {
     grid-template-rows:  1fr auto
   }
+
+  /* .grecaptcha-badge { visibility: hidden; } */
 </style>
