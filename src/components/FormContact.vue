@@ -40,6 +40,7 @@
       <div class="col-span-2" v-if="v$.$errors.length">
         <p class="text-red-500">Please complete all required info</p>
       </div>
+      <div data-netlify-recaptcha="true"></div>
       <button type="submit" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT</button>
     </div>
   </form>
