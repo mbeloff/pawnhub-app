@@ -435,7 +435,7 @@
   }
 
   .my-input {
-    @apply h-8 border-b-2 border-t-0 border-l-0 border-r-0 text-zinc-900 px-1 border-amber-500/50
+    @apply h-8 border-b-4 border-t-0 border-l-0 border-r-0 text-zinc-900 px-1 border-amber-500/50
   }
 
   .my-input:focus {

@@ -1,5 +1,5 @@
 <template>
-  <label class="border rounded flex items-center p-2 border-zinc-600 text-zinc-300 text-sm" for="recaptcha">
+  <label class="!border rounded flex items-center p-2 border-zinc-600 text-zinc-300 text-sm" for="recaptcha">
     <input id="recaptcha" name="recaptcha" type="checkbox" class="accent-amber-400 scale-[1.25]" @click.prevent="recaptcha" v-model="state.success">
     <span class="ml-2">I'm not a robot</span>
     <i v-show="state.checking && !state.success" class="far fa-circle-notch ml-2 opacity-80 fa-spin"></i>

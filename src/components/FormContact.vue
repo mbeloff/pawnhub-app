@@ -29,16 +29,17 @@
         </label>
       </fieldset>
       <div class="flex flex-col relative mt-4 pt-1 col-span-2">
-        <textarea ref="message" name="message" id="message" cols="30" rows="3" class=" border-b-2 border-amber-500 p-2 peer" v-model="form.message" placeholder=" " :class="{error: v$.form.message.$errors.length}"></textarea>
+        <textarea ref="message" name="message" id="message" cols="30" rows="3" class=" border-b-4 border-amber-300 p-2 peer" v-model="form.message" placeholder=" " :class="{error: v$.form.message.$errors.length}"></textarea>
         <label for="message" class="px-1 pointer-events-none absolute left-0 -top-4 text-amber-200 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-200 peer-focus:text-xs" :class="{'top-2': !form.message}">Message</label>
       </div>
+      
+      <recaptcha-check class="bg-zinc-700" :class="{error: v$.success.$errors.length}" @success="success = true"></recaptcha-check>
+      <button type="submit" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT</button>
       <div class="col-span-full text-xs text-zinc-400 italic -mt-4 opacity-70">
         This site is protected by reCAPTCHA and the Google
         <a class="text-blue-400" href="https://policies.google.com/privacy">Privacy Policy</a> and
         <a class="text-blue-400" href="https://policies.google.com/terms">Terms of Service</a> apply.
       </div>
-      <recaptcha-check class="bg-zinc-700" :class="{error: v$.success.$errors.length}" @success="success = true"></recaptcha-check>
-      <button type="submit" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT</button>
     </div>
   </form>
 </template>
