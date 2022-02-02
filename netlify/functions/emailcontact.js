@@ -3,7 +3,7 @@ const html = require('escape-html-template');
 const headers = {
   'Access-Control-Allow-Origin': process.env.VITE_HOST,
   'Access-Control-Allow-Headers': 'Content-Type',
-  // 'Access-Control-Allow-Methods': 'GET'
+  'Access-Control-Allow-Methods': 'POST'
 };
 exports.handler = function (event, context, callback) {
   const transporter = nodemailer.createTransport({
@@ -62,11 +62,13 @@ exports.handler = function (event, context, callback) {
       console.log(error)
       callback(null, {
         statusCode: 500,
+        headers,
         body: error.toString(),
       });
     } else {
       callback(null, {
         statusCode: 200,
+        headers,
         body: "Ok"
       });
     }

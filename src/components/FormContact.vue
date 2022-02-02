@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit()" data-netlify="true" data-netlify-recaptcha="true">
+  <form @submit.prevent="submit()">
     <div class="grid grid-cols-2 gap-4 gap-y-6 max-w-lg mx-auto py-10 bg-zinc-800 px-6 rounded border border-zinc-700">
       <div class="col-span-2 mb-4">
         <p class="text-2xl font-bold text-amber-500 ">Contact Us</p>
@@ -37,10 +37,7 @@
         <a class="text-blue-400" href="https://policies.google.com/privacy">Privacy Policy</a> and
         <a class="text-blue-400" href="https://policies.google.com/terms">Terms of Service</a> apply.
       </div>
-      <div class="col-span-2" v-if="v$.$errors.length">
-        <p class="text-red-500">Please complete all required info</p>
-      </div>
-      <div data-netlify-recaptcha="true"></div>
+      <recaptcha-check class="bg-zinc-700" :class="{error: v$.success.$errors.length}" @success="success = true"></recaptcha-check>
       <button type="submit" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT</button>
     </div>
   </form>
@@ -48,6 +45,7 @@
 
 <script>
   import useVuelidate from '@vuelidate/core'
+  import RecaptchaCheck from '@/components/RecaptchaCheck.vue'
   import {
     required,
     requiredIf,
@@ -59,8 +57,12 @@
         v$: useVuelidate()
       }
     },
+    components: {
+      RecaptchaCheck
+    },
     data() {
       return {
+        success: null,
         form: {
           name: "",
           phone: "",
@@ -73,6 +75,9 @@
     },
     validations() {
       return {
+        success: {
+          required
+        },
         form: {
           name: {
             required

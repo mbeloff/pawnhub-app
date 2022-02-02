@@ -114,5 +114,5 @@
     grid-template-rows:  1fr auto
   }
 
-  /* .grecaptcha-badge { visibility: hidden; } */
+  .grecaptcha-badge { visibility: hidden; }
 </style>
