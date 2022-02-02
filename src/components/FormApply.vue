@@ -1,5 +1,5 @@
 <template>
-  <form ref="appForm" class="grid gap-5">
+  <form ref="appForm" class="grid gap-5 relative">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6">
       <span class="col-span-full text-sm my-4 uppercase text-amber-500 text-center">Personal Details</span>
       <div class="relative">
@@ -125,7 +125,7 @@
       <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm font-light peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
-    <button @click.prevent="validate()" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400">SUBMIT FOR APPROVAL</button>
+    <button @click.prevent="validate()" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400" :class="{ 'pointer-events-none opacity-50' : loading }">SUBMIT FOR APPROVAL</button>
 
   </form>
 </template>
@@ -134,6 +134,7 @@
   export default {
     data() {
       return {
+        loading: false,
         uid: Date.now(),
         conditions: [
           'As New', 'Excellent', 'Above Average', 'Good', 'Fair', 'Poor', 'Unroadworthy'
@@ -288,6 +289,7 @@
           })
       },
       sendmail() {
+        this.loading = true
         var requestOptions = {
           method: 'POST',
           body: JSON.stringify(this.emailBody),
@@ -296,6 +298,7 @@
         fetch(
             import.meta.env.VITE_HOST + "/.netlify/functions/emailapplication", requestOptions)
           .then(response =>{
+            this.loading = false
             if(response.ok){return response.text()}
             throw new Error(response.statusText)
           })

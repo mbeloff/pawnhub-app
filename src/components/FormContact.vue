@@ -1,6 +1,11 @@
 <template>
   <form @submit.prevent="submit()">
-    <div class="grid grid-cols-2 gap-4 gap-y-6 max-w-lg mx-auto py-10 bg-zinc-800 px-6 rounded border border-zinc-700">
+    <div class="grid grid-cols-2 gap-4 gap-y-6 max-w-lg mx-auto py-10 bg-zinc-800 px-6 rounded border border-zinc-700 relative">
+      <div v-if="loading" class="absolute backdrop-blur-sm w-full h-full z-50 bg-zinc-800/70 grid items-center pointer-events-auto">
+        <div class="w-full grid items-center text-amber-500">
+          <i class="far fa-circle-notch text-center fa-spin fa-2x"></i>
+        </div>
+      </div>
       <div class="col-span-2 mb-4">
         <p class="text-2xl font-bold text-amber-500 ">Contact Us</p>
         <p class=" text-lg text-zinc-300">Please leave a message and we'll get back to you as soon as we can.</p>
@@ -63,6 +68,7 @@
     },
     data() {
       return {
+        loading: false,
         success: null,
         form: {
           name: "",
@@ -109,6 +115,7 @@
         this.sendmail()
       },
       sendmail() {
+        this.loading = true
         var requestOptions = {
           method: 'POST',
           body: JSON.stringify(this.form),
@@ -117,8 +124,7 @@
         fetch(
             import.meta.env.VITE_HOST + "/.netlify/functions/emailcontact", requestOptions)
           .then(response => {
-            // console.log(response)
-            // console.log(response.text())
+            this.loading = false
             if (response.ok) {
               return response.text()
             }
@@ -140,7 +146,6 @@
           })
           .catch(error => {
             this.$vfm.show('dialog-error')
-            // console.log('failed to submit: ', error)
           });
       },
     }
