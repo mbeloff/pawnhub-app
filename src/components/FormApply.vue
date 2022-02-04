@@ -28,14 +28,7 @@
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 gap-y-8 mt-2">
-      <div class="flex w-full relative text-zinc-500 focus-within:text-amber-500">
-        <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
-        <span class="text-amber-500 opacity-50">/</span>
-        <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="my-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
-        <span class="text-amber-500 opacity-50">/</span>
-        <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'invalid' : isInvalid('dobY')}" autocomplete="bday-year">
-        <label class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
-      </div>
+      
       <div class="relative">
         <input ref="license" id="license" name="license" type="text" maxlength="14" v-model="form.license" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('license') }" placeholder=" " @input="removeError('license')" />
         <label for="license" class="my-label">License #</label>
@@ -47,6 +40,14 @@
         <span class="text-amber-500 opacity-50">/</span>
         <input ref="expY" id="expY" @focus="$event.target.select()" maxlength="4" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.expY" @input="handleInput, removeError('expY')" :class="{ 'invalid' : isInvalid('expD')}" autocomplete="off">
         <label for="" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">License Expiry</label>
+      </div>
+      <div class="flex w-full relative text-zinc-500 focus-within:text-amber-500">
+        <input ref="dobD" id="dobD" @focus="$event.target.select()" maxlength="2" min="1" type="number" placeholder="DD" class="my-input w-[30%]" v-model.number="form.dobD" @input="handleInput($event,'dobM'), removeError('dobD')" :class="{ 'invalid' : isInvalid('dobD')}" autocomplete="bday-day">
+        <span class="text-amber-500 opacity-50">/</span>
+        <input ref="dobM" id="dobM" @focus="$event.target.select()" maxlength="2" type="number" min="1" placeholder="MM" class="my-input w-[30%]" v-model.number="form.dobM" @input="handleInput($event, 'dobY'), removeError('dobM')" :class="{ 'invalid' : isInvalid('dobM')}" autocomplete="bday-month">
+        <span class="text-amber-500 opacity-50">/</span>
+        <input ref="dobY" id="dobY" @focus="$event.target.select()" maxlength="4" min="1" max="9999" type="number" placeholder="YYYY" class="my-input w-[40%]" v-model.number="form.dobY" @input="handleInput($event, 'license'), removeError('dobY')" :class="{ 'invalid' : isInvalid('dobY')}" autocomplete="bday-year">
+        <label class="px-1 pointer-events-none absolute left-0 -top-3.5 text-xs transition-all w-full flex justify-between items-center">Date of Birth</label>
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6">
@@ -450,7 +451,7 @@
   }
 
   .my-label {
-    @apply px-1 pointer-events-none absolute left-0 -top-4 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
+    @apply px-1 pointer-events-none absolute left-0 -top-4 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-400 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-600 peer-focus:text-xs
   }
 
   .my-label.label-initial {

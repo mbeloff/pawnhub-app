@@ -24,7 +24,7 @@
 
     
 
-    <div class="flex-grow p-2">
+    <div class="flex-grow p-2 bg-zinc-100">
       <slot :params="params"></slot>
     </div>
   </vue-final-modal>

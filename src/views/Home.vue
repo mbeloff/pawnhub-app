@@ -3,9 +3,9 @@
     <div class="bg-1 bg-cover bg-center mix-blend-lighten py-20">
       <div class="container mx-auto lg:flex-col lg:items-center px-4 lg:justify-between gap-10 relative py-5 overflow-x-hidden">
         <div class="text-4xl mb-4 font-extrabold leading-9 tracking-tight text-gray-200 sm:text-4xl sm:leading-10 z-20">
-          <p class="mb-3">Need Cash Fast?</p>          
+          <p class="mb-3 text-amber-500">Need Cash Fast?</p>          
           <div class="bg-black/50 pr-5">
-            <h1 class="text-amber-300 text-3xl">Quick and easy cash loans against your vehicle. <br>No credit checks. No proof of income.</h1>  
+            <h1 class="text-zinc-300 font-medium text-3xl">Quick and easy cash loans against your vehicle. <br>No credit checks. No proof of income.</h1>  
           </div>                 
         </div>
         <div class="flex mt-8 lg:flex-shrink-0 z-2 ">
@@ -16,31 +16,29 @@
     <div class="bg-gradient-to-b from-zinc-900 to-zinc-800">
       <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
         <div class="text-zinc-100 flex flex-col gap-3 lg:w-4/5 ml-auto font-light">
-          <h1 class="text-amber-500 font-medium text-4xl mb-4">
-            Get the money you need <span class="italic font-bold">today</span>
+          <h1 class="text-zinc-300 font-light text-4xl mb-4">
+            Get the money you need <span class="italic font-bold text-amber-500">today</span>
           </h1>
-          <p>Borrow up to $100,000 </p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Borrow up to 60% of the value of your vehicle</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or other expenses?</p>
-          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Won a contract and need to purchase materials or hire more staff?</p>
-          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Expecting a tax return but need cash now?</p>
-          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Have urgent bills to pay and don't want to sell any assets?</p>
-          <p class="mt-5 max-w-prose">No matter the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Come up against some unexpected medical or dental costs?</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Need to catch up on some overdue bills</p>
+          <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Get quick cash today without selling any assets</p>
+          <p class="mt-5">Regardless of the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
         </div>
         <div class="w-full lg:py-10 h-full mr-auto ">
           <img class="object-cover w-full h-full rounded shadow-2xl" src="https://res.cloudinary.com/pawnhub/image/upload/f_auto,q_auto/c_scale,w_600/v1643253007/assets/ph_fp1" alt="">
         </div>
       </div>
-
     </div>
-
-    <div class="svg-back relative border-t-4 border-amber-500">
-      <div class="absolute w-full h-full bg-zinc-900/80"></div>
+    <div class="relative border-t-4 border-amber-500">
+      <div class="absolute w-full h-full mix-blend-luminosity opacity-5 bg-right bg-cover" style="backgroundImage: url(https://res.cloudinary.com/dg5ybbkbh/image/upload/v1643846296/blue-green-gradient-background-with-spheres-and-shapes.jpg)"></div>
       <div class="content-box grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div v-for="card in cards" :key="card.title" class="backdrop-blur-sm bg-black/20 rounded-lg flex items-center flex-col text-zinc-100 py-2">
+        <div v-for="card in cards" :key="card.title" class="z-20 bg-black/30 rounded-lg flex items-center flex-col text-zinc-100 py-2 shadow-2xl shadow-black/40">
           <icon-stack :icon="card.icon"></icon-stack>
           <div class="px-4 text-center">
             <h3 class="text-amber-500 font-bold text-lg mb-2">{{card.title}}</h3>
-            <p class="text-left py-4 text-zinc-100">{{card.text}}</p>
+            <p class="text-left py-4 text-zinc-300 font-light">{{card.text}}</p>
           </div>
         </div>
       </div>
@@ -57,9 +55,10 @@
   </div>
   <div class="bg-zinc-900">
     <div class="container mx-auto py-20 px-2 flex flex-col gap-4">
-      <div class="w-1/2 text-zinc-300">
-      <p class="text-amber-500/90 font-medium text-4xl mb-10">Getting a cash loan with PawnHub couldn't be easier</p>
-      <div class="flex">
+      <div class=" mx-auto max-w-prose text-zinc-300">
+      <p class="text-zinc-300 font-light text-4xl">Getting a <span class="font-bold italic text-amber-500">cash loan</span> with PawnHub couldn't be easier</p>
+       <div class="py-10">
+         <div class="flex">
         <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">1</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Get a quote</p>
@@ -87,11 +86,13 @@
          <p class="">We make it easy to make your loan repayments - pay via phone, in-store or online.</p>
         </div>     
       </div> 
-      </div>
-           
+       </div>
+       <p class="text-zinc-300 font-light">
+          Whether you need a short-term loan to get started with a new business, catch up on overdue bills, unexpected medical expenses, home renovations, or even a holiday - we offer <span class="italic">fast</span> and convenient cash loans so you can relieve some stress and get on with your life. We accept applications without proof of income and regardless of your credit history, so get in touch today to apply for an easy loan secured by your vehicle and get some cash in your hand today.
+        </p>
+      </div>           
     </div>
   </div>
-  <div class="h-screen bg-zinc-900"></div>
 </template>
 
 <script>
@@ -118,8 +119,8 @@
             icon: "search-dollar"
           },
           {
-            title: "Great Deals",
-            text: "Negotiate the best loan to value ratio. Borrow up to 60% of your vehicle's value.",
+            title: "Great Rates",
+            text: "Negotiate the best loan to value ratio with competitive interest rates. Borrow up to 60% of your vehicle's value.",
             icon: "comments-alt-dollar"
           },
           {
