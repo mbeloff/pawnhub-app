@@ -24,7 +24,7 @@
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Come up against some unexpected medical or dental costs?</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Need to catch up on some overdue bills</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Get quick cash today without selling any assets</p>
-          <p class="mt-5">Regardless of the reason, we'll lend you money against any registered and unencumbered vehicle of value. With your car held securely by us for the duration of the loan.</p>
+          <p class="mt-5">Regardless of the reason, we'll lend you money against any registered and unencumbered vehicle. With your car, ute or SUV held securely by us for the duration of the loan.</p>
         </div>
         <div class="w-full lg:py-10 h-full mr-auto ">
           <img class="object-cover w-full h-full rounded shadow-2xl" src="https://res.cloudinary.com/pawnhub/image/upload/f_auto,q_auto/c_scale,w_600/v1643253007/assets/ph_fp1" alt="">
@@ -62,14 +62,14 @@
         <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">1</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Get a quote</p>
-         <p class="">Let us know about your vehicle and we'll give you a quick quote and pre-approval.</p>
+         <p class="">Let us know about your vehicle and we'll give you a quick quote and pre-approval. Just give us a call or <button @click="$vfm.show('form')" class="text-amber-500 font-bold text-left">apply online</button>.</p>
         </div>     
       </div>
       <div class="flex">
         <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">2</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Drop in</p>
-         <p class="">Bring in your vehicle, along with 2 forms of ID (Including 1 photo ID).</p>
+         <p class="">Bring in your vehicle, proof of ownership and 2 forms of ID (Including 1 photo ID).</p>
         </div>     
       </div>
       <div class="flex">

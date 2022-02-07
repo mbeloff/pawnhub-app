@@ -100,7 +100,7 @@
       </div>
     </div>
     <div class="w-full flex flex-col relative my-4 mt-10">
-      <input class="accent-amber-500 peer" type="range" name="amount" id="amount" min="5000" max="50000" step="2500" v-model.number="form.amount">
+      <input class="accent-amber-500 peer" type="range" name="amount" id="amount" min="1000" max="100000" step="2500" v-model.number="form.amount">
       <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-zinc-500 text-sm transition-all peer-focus:text-amber-400 peer-hover:text-amber-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-amber-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
     </div>
 
@@ -116,10 +116,14 @@
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <button @click.prevent="openCloudWidget" class="flex border border-zinc-400 bg-zinc-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+    <label for="cloudbutton" class="flex flex-col">
+      <button id="cloudbutton" @click.prevent="openCloudWidget" class="flex border border-zinc-400 bg-zinc-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
       <span class="px-2 text-zinc-500 group-hover:text-zinc-700 ">Optional - Image Upload</span>
       <div class="bg-amber-500 group-hover:bg-amber-400 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </button>
+    <p class="text-sm italic text-zinc-800 font-light p-1">You can use the button above to upload photos of your vehicle, proof of ownership and/or ID documents.</p>
+    </label>
+    
 
     <div class="flex flex-col relative my-4 pt-1">
       <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message" placeholder=" "></textarea>
