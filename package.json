@@ -1,6 +1,7 @@
 {
-  "name": "vite-vue3-tailwind-starter",
+  "name": "pawnhub-app",
   "version": "0.0.0",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -18,7 +19,6 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@headlessui/vue": "^1.4.2",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.3.0",

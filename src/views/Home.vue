@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="relative border-t-4 border-amber-500">
-      <div class="absolute w-full h-full mix-blend-luminosity opacity-5 bg-right bg-cover" style="backgroundImage: url(https://res.cloudinary.com/dg5ybbkbh/image/upload/v1643846296/blue-green-gradient-background-with-spheres-and-shapes.jpg)"></div>
+      <div class="absolute w-full h-full mix-blend-luminosity opacity-5 bg-right bg-cover" :style="{'background-image': 'url(https://res.cloudinary.com/dg5ybbkbh/image/upload/v1643846296/blue-green-gradient-background-with-spheres-and-shapes.jpg)'}"></div>
       <div class="content-box grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div v-for="card in cards" :key="card.title" class="z-20 bg-black/30 rounded-lg flex items-center flex-col text-zinc-100 py-2 shadow-2xl shadow-black/40">
           <icon-stack :icon="card.icon"></icon-stack>
@@ -116,7 +116,7 @@
           {
             title: "No Credit Checks",
             text: "Get a loan regardless of your credit history. No application fees or proof of income required.",
-            icon: "search-dollar"
+            icon: "search-dollar",
           },
           {
             title: "Great Rates",
