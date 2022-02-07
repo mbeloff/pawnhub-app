@@ -2,25 +2,11 @@
   <div class="bg-zinc-900 min-h-screen grid app">
     <nav-bar></nav-bar>
 
-    <main-modal name="form" v-model="show" @cancel="cancel" :transition="{
-        'enter-active-class': 'transition duration-200 ease-in-out transform',
-        'enter-from-class': 'translate-y-full',
-        'enter-to-class': 'translate-y-0',
-        'leave-active-class': 'transition duration-200 ease-in-out transform',
-        'leave-to-class': 'translate-y-full',
-        'leave-from-class': 'translate-y-0'
-      }">
+    <main-modal name="form" v-model="show" @cancel="cancel" :transition="transition">
       <form-apply></form-apply>
     </main-modal>
 
-    <vue-final-modal v-model="showConfirmation" name="dialog-confirmation" overlay-class="backdrop-blur-lg" :focus-trap="true" :click-to-close="false" :transition="{
-        'enter-active-class': 'transition duration-200 ease-in-out transform',
-        'enter-from-class': 'translate-y-full',
-        'enter-to-class': 'translate-y-0',
-        'leave-active-class': 'transition duration-200 ease-in-out transform',
-        'leave-to-class': 'translate-y-full',
-        'leave-from-class': 'translate-y-0'
-      }">
+    <vue-final-modal v-model="showConfirmation" name="dialog-confirmation" overlay-class="backdrop-blur-lg" :focus-trap="true" :click-to-close="false" :transition="transition">
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl flex flex-col p-4 gap-2 w-full max-w-md text-center">
 
         <div class="-mt-10 mx-auto flex items-center justify-center h-24 w-24 rounded-full text-green-400 bg-green-100">
@@ -32,14 +18,7 @@
       </div>
     </vue-final-modal>
    
-    <vue-final-modal v-model="showError" name="dialog-error" overlay-class="backdrop-blur-lg" :focus-trap="true" :click-to-close="false" :transition="{
-        'enter-active-class': 'transition duration-200 ease-in-out transform',
-        'enter-from-class': 'translate-y-full',
-        'enter-to-class': 'translate-y-0',
-        'leave-active-class': 'transition duration-200 ease-in-out transform',
-        'leave-to-class': 'translate-y-full',
-        'leave-from-class': 'translate-y-0'
-      }">
+    <vue-final-modal v-model="showError" name="dialog-error" overlay-class="backdrop-blur-lg" :focus-trap="true" :click-to-close="false" :transition="transition">
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl flex flex-col p-4 gap-2 w-full max-w-md text-center">
         <div class="-mt-10 mx-auto flex items-center justify-center h-24 w-24 rounded-full text-red-300 bg-red-100">
           <i class="far fa-times fa-2x inline-block mt-1"></i>       
@@ -75,10 +54,17 @@
       show: false,
       showConfirmation: false,
       showError: false,
+      transition: {
+        'enter-active-class': 'transition duration-200 ease-in-out transform',
+        'enter-from-class': 'translate-y-full',
+        'enter-to-class': 'translate-y-0',
+        'leave-active-class': 'transition duration-200 ease-in-out transform',
+        'leave-to-class': 'translate-y-full',
+        'leave-from-class': 'translate-y-0'
+      }
     }),
     methods: {
       cancel(close) {
-        // some code...
         close()
       },
       closeAll() {
