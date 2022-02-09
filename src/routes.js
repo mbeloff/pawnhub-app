@@ -3,6 +3,7 @@ import About from './views/About.vue'
 import NotFound from './views/NotFound.vue'
 import Contact from './views/Contact.vue'
 import FAQ from './views/FAQ.vue'
+import CarPawn from './views/CarPawn.vue'
 
 
 /** @type {import('vue-router').RouterOptions['routes']} */
@@ -29,6 +30,14 @@ export const routes = [{
       title: 'About'
     },
     component: About,
+  },
+  {
+    name: 'Pawn',
+    path: '/cash-for-cars',
+    meta: {
+      title: 'Cash for Cars'
+    },
+    component: CarPawn
   },
   {
     name: 'Faq',

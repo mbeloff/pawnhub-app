@@ -16,9 +16,8 @@
       <div class="text-zinc-300 flex flex-col w-full md:flex-row text-sm py-2 md:py-0" >
         <router-link class="nav-item" :to="{name: 'Home'}">Home</router-link>
         <router-link class="nav-item" :to="{name: 'About'}">About</router-link>
-        <router-link class="nav-item" :to="{name: ''}">Cash for Cars</router-link>
-        <router-link class="nav-item" :to="{name: 'Faq'}">FAQ's</router-link>
-        
+        <router-link class="nav-item" :to="{name: 'Pawn'}">Cash for Cars</router-link>
+        <router-link class="nav-item" :to="{name: 'Faq'}">FAQ's</router-link>        
         <router-link class="nav-item" :to="{name: 'Contact'}">Contact</router-link>
         <button @click="$vfm.show('form')" class="nav-item text-amber-500 font-bold text-left">Apply Now</button>
       </div>
@@ -37,6 +36,11 @@ export default {
     return {
       hide: true,
       common: Common
+    }
+  },
+  watch: {
+    $route: function() {
+      this.hide = true
     }
   }
 }

@@ -17,7 +17,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 grid-flow-row container mx-auto items-center py-20 gap-10 px-4">
         <div class="text-zinc-100 flex flex-col gap-3 lg:w-4/5 ml-auto font-light">
           <h1 class="text-zinc-300 font-light text-4xl mb-4">
-            Get the money you need <span class="italic font-bold text-amber-500">today</span>
+            Get the money you need <span class="italic font-bold text-amber-500">today</span> 
           </h1>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Borrow up to 60% of the value of your vehicle</p>
           <p><i class="fal fa-check-circle mr-2 text-amber-500"></i>Waiting on a payment but need cash now for wages, materials or other expenses?</p>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="relative border-t-4 border-amber-500">
-      <div class="absolute w-full h-full mix-blend-luminosity opacity-5 bg-right bg-cover" :style="{'background-image': 'url(https://res.cloudinary.com/dg5ybbkbh/image/upload/v1643846296/blue-green-gradient-background-with-spheres-and-shapes.jpg)'}"></div>
+      <div class="absolute w-full h-full bg-2 mix-blend-luminosity opacity-5 bg-right bg-cover"></div>
       <div class="content-box grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div v-for="card in cards" :key="card.title" class="z-20 bg-black/30 rounded-lg flex items-center flex-col text-zinc-100 py-2 shadow-2xl shadow-black/40">
           <icon-stack :icon="card.icon"></icon-stack>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-black/50 py-10 text-center gap-5 flex flex-col border-b-4 border-t-4 border-amber-500/80 text-zinc-200">
+    <div class="bg-black/20 py-10 text-center gap-5 flex flex-col border-b-4 border-t-4 border-amber-500/80 text-zinc-200 px-2">
       <p class="text-lg">Whatever your situation, we're here to help with <em>fast,</em> no-fuss cash loans</p>
       <p class="text-2xl">Interested? Get in touch today!</p>
       <div class="flex flex-col md:flex-row mx-auto gap-2 container max-w-2xl items-center">
@@ -141,6 +141,11 @@
 
   .bg-1 {
     background-image: url(https://res.cloudinary.com/pawnhub/image/upload/v1642638013/assets/ph_bg1.jpg)
+  }
+
+  .bg-2 {
+    background-image: url(https://res.cloudinary.com/dg5ybbkbh/image/upload/v1643846296/blue-green-gradient-background-with-spheres-and-shapes.jpg)
+    
   }
 
   .svg-back {

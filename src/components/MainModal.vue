@@ -20,7 +20,7 @@
       </button>
     </h2>
   </div>
-    <div class="flex-grow p-2 bg-zinc-200">
+    <div class="flex-grow">
       <slot :params="params"></slot>
     </div>
   </vue-final-modal>

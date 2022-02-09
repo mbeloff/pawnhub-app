@@ -1,25 +1,44 @@
 <template>
-<div class="container mx-auto py-20">
-  <p class="text-2xl text-amber-500 p-2 mb-5 font-bold">Frequently asked questions <span class="text-zinc-300 font-light">about car pawnbroking</span></p>
-  <div v-for="(item,i) in questions" :key="i" class="cursor-pointer">
-    <div @click="toggle(i)" class="p-2 font-medium text-amber-500 flex items-center justify-between rounded-t-lg" :class="{ 'bg-gradient-to-tr from-amber-500 to-amber-300 text-zinc-900' : tabActive == i }">
-    <span>{{ item.title }}</span>
-      <i v-show="tabActive != i" class="fal fa-plus"></i>
-      <i v-show="tabActive == i" class="fal fa-minus"></i>
+  <div class="bg-gradient-to-t from-zinc-900 to-zinc-800">
+    <div class="container mx-auto py-20 px-2">
+      <p class="text-2xl text-amber-500 p-2 mb-5 font-bold">Frequently asked questions <span class="text-zinc-300 font-light">about car pawnbroking</span></p>
+      <div v-for="(item,i) in questions" :key="i" class="cursor-pointer rounded-lg " :class="{ ' shadow-lg ' : tabActive == i }">
+        <div @click="toggle(i)" class="p-2 font-medium text-amber-500 flex items-center justify-between rounded-t-lg" :class="{ 'bg-gradient-to-tr from-amber-500/90 to-amber-300/90 text-inherit' : tabActive == i }">
+          <span>{{ item.title }}</span>
+          <i v-show="tabActive != i" class="fal fa-plus"></i>
+          <i v-show="tabActive == i" class="fal fa-minus"></i>
+        </div>
+        <transition-expand>
+          <div class="bg-zinc-800 text-zinc-300 rounded-b-lg" :class="{ 'bg-opacity-0' : tabActive != i }" v-show="tabActive == i">
+            <p class="py-5 px-2 text-sm font-light rounded-b-lg">{{item.content}}</p>
+          </div>
+        </transition-expand>
+      </div>
+
     </div>
-    <transition-expand>
-      <div class="bg-zinc-800 text-zinc-300 rounded-b-lg"  :class="{ 'bg-opacity-0' : tabActive != i }"  v-show="tabActive == i">
-        <p class="p-5 text-sm font-light rounded-b-lg">{{item.content}}</p>  
-      </div>            
-    </transition-expand>
+    <div class="bg-zinc-900">
+<div class="bg-black/20 py-10 text-center gap-5 flex flex-col border-b-4 border-t-4 border-amber-500/80 text-zinc-300 mb-20 px-2">
+      <p class="text-lg">Whatever your situation, we're here to help with <em>fast,</em> no-fuss cash loans</p>
+      <p class="text-2xl">Interested? Get in touch today!</p>
+      <div class="flex flex-col md:flex-row mx-auto gap-2 container max-w-2xl items-center">
+        <a :href="`tel:${common.phoneLand.replaceAll(' ','')}`" class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase">{{common.phoneLand}}</a>
+        <router-link :to="{name: 'Contact'}" class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase">Message Us Online</router-link>
+        <button class="py-2 w-52 flex-1 px-6 hover:bg-amber-400 bg-amber-500 text-black uppercase" @click="$vfm.show('form')">Get a Quote</button>
+      </div>
+    </div>
+    </div>
+    
   </div>
-</div>
+
 </template>
 
 <script>
-import TransitionExpand from '@/components/TransitionExpand.vue'
+  import TransitionExpand from '@/components/TransitionExpand.vue'
+  import common from '@/common.js'
   export default {
-    components: {TransitionExpand},
+    components: {
+      TransitionExpand
+    },
     methods: {
       toggle(tab) {
         if (tab == this.tabActive) {
@@ -31,9 +50,9 @@ import TransitionExpand from '@/components/TransitionExpand.vue'
     },
     data() {
       return {
+        common: common,
         tabActive: null,
-        questions: [
-          {
+        questions: [{
             title: 'How quickly can I get a loan with PawnHub?',
             content: 'After appraisal of your vehicle, you can typically get a loan within 30 minutes'
           },
@@ -62,7 +81,7 @@ import TransitionExpand from '@/components/TransitionExpand.vue'
             content: 'By the end of your loan term, you will need to pay back to principal amount and a monthly interest payment of 20%. E.g. For a loan of $1,000 your interest payment would be $200 each 30 day period, or part thereof, up to a maximum of 90 days.'
           },
           {
-            title: 'I have a bad credit rating, am I still have to get a loan?',
+            title: 'I have a bad credit rating, am I still able to get a loan?',
             content: 'Yes, we are still able to help you.'
           },
           {
@@ -71,7 +90,7 @@ import TransitionExpand from '@/components/TransitionExpand.vue'
           },
           {
             title: 'There is money owing on my vehicle, am I still able to borrow against it?',
-            content: 'We prefer there to be no finance owing or at least minimal owing so it can be paid out from the principal amount borrowed.'
+            content: 'Your vehicle must be free from finance or any amounts owing to a financial institution.'
           },
           {
             title: 'How long is the loan term?',

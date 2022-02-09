@@ -29,18 +29,13 @@ exports.handler = function(event, context, callback) {
   <tr><td>Email: </td><td><a href="mailto:${body.email}">${body.email}</a></td></tr>
   <tr><td>Phone: </td><td><a href="tel:${body.phone}">${body.phone}</a></td></tr>
   <tr><td>Address: </td><td>${body.address}</td></tr>
-  <tr><td>D.O.B. </td><td>${body.dob}</td></tr>
-  <tr><td>License # </td><td>${body.license}</td></tr>
-  <tr><td>License Expiry: </td><td>${body.expiry}</td></tr>
   <tr></tr>
   <tr><th style="text-align: left" colspan="2"><h4><br>Asset Details<br></h4></th></tr>
   <tr></tr>
   <tr><td>Vehicle: </td><td>${body.vehicle}</td></tr>
-  <tr><td>Type of Vehicle: </td><td>${body.vehicleType}</td></tr>
   <tr><td>Rego #: </td><td>${body.rego}</td></tr>
   <tr><td>Mileage: </td><td>${body.mileage}</td></tr>
   <tr><td>Transmission: </td><td>${body.transmission}</td></tr>
-  <tr><td>Fuel: </td><td>${body.fuel}</td></tr>
   <tr></tr>
   <tr><th style="text-align: left" colspan="2"><h4><br>Attachments<br></h4></th></tr>
   <tr></tr>
