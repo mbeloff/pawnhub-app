@@ -80,6 +80,9 @@
       }
     },
     watch: {
+      '$route': function() {
+        window.scrollTo(0,0)
+      },
       'show': function (val) {
         if (val == true) {
           document.body.style.overflowY = 'hidden'
