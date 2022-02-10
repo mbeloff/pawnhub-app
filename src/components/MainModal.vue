@@ -5,11 +5,11 @@
     :focus-trap="true"
     :click-to-close="false"
     :esc-to-close="true"
-    overlay-class="backdrop-blur-lg"
-    classes="flex justify-center items-center mx-auto overflow-y-auto absolute top-0 bottom-0 my-2"
-    content-class="absolute top-0 flex flex-col bg-zinc-200 max-w-lg"
+    overlay-class="backdrop-blur-lg !bg-black/30"
+    classes="flex justify-center items-center mx-auto overflow-y-auto absolute top-0 bottom-0 my-2 rounded  "
+    content-class="absolute top-0 flex flex-col max-w-lg rounded shadow-lg "
   >
-  <div class="bg-amber-500 z-50 w-full p-2 top-0 left-0">
+  <div class="bg-amber-500 z-50 w-full p-2 top-0 left-0 rounded-t">
     <h2 class="text-xl font-bold leading-6 flex items-center justify-between text-white">
       Online Application
       <button @click="$emit('cancel', close)"
