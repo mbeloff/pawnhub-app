@@ -1,7 +1,7 @@
 <template>
-  <form ref="appForm" class="grid gap-5 relative px-3 bg-zinc-800 rounded-b">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6">
-      <span class="col-span-full text-sm my-4 uppercase text-amber-400 text-center">Personal Details</span>
+  <form ref="appForm" class="grid gap-5 relative px-3 bg-zinc-800">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6 pt-10">
+      <span class="col-span-full text-sm uppercase text-amber-500/80 text-left font-bold">Personal Details</span>
       <div class="relative">
         <input ref="firstName" id="firstName" name="firstName" type="text" v-model="form.firstName" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('firstName') }" placeholder=" " @input="removeError('firstName')" />
         <label for="firstName" class="my-label">First Name</label>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6">
-      <span class="col-span-full text-sm my-4 uppercase text-amber-400 text-center">Vehicle Details</span>
+      <span class="col-span-full text-sm mt-4 uppercase text-amber-500/80 font-bold">Vehicle Details</span>
       <div class="relative">
         <input ref="make" id="make" name="make" type="text" v-model="form.make" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('make') }" placeholder=" " @input="removeError('make')" />
         <label for="make" class="my-label">Vehicle Make</label>
@@ -66,28 +66,28 @@
       </div>
     </div>
     <div class="w-full flex flex-col relative my-4 mt-10">
-      <input class="accent-amber-500 peer" type="range" name="amount" id="amount" min="1000" max="100000" step="2500" v-model.number="form.amount">
+      <input class="accent-amber-500 peer" type="range" name="amount" id="amount" min="1000" max="100000" step="1000" v-model.number="form.amount">
       <label for="amount" class="px-1 pointer-events-none absolute left-0 -top-8 text-zinc-300 font-light text-sm transition-all peer-focus:text-amber-400 peer-hover:text-amber-400 w-full flex justify-between items-center">Requested Loan Amount: <span class="text-base text-amber-500 font-bold">${{form.amount.toLocaleString()}}</span></label>
     </div>
     <div class="flex flex-col gap-2 text-zinc-300">
       <label for="accept1" class="flex gap-3 items-center p-1" :class="{ 'text-red-500 border border-red-500  rounded' : isInvalid('accept1')}">
-        <input type="checkbox" name="accept1" id="accept1" class="accent-amber-400 scale-[1.5]" v-model="form.accept1" @change="removeError('accept1')">
+        <input type="checkbox" name="accept1" id="accept1" class="accent-amber-500 scale-[1.5]" v-model="form.accept1" @change="removeError('accept1')">
         <span class="text-sm italic tracking-tight leading-tight font-light">My vehicle is unencumbered, registered and in a roadworthy condition</span>
       </label>
       <label for="accept2" class="flex gap-3 items-center p-1" :class="{ 'text-red-500 border border-red-500 rounded' : isInvalid('accept2')}">
-        <input type="checkbox" name="accept2" id="accept2" class="accent-amber-400 scale-[1.5]" v-model="form.accept2" @change="removeError('accept2')">
+        <input type="checkbox" name="accept2" id="accept2" class="accent-amber-500 scale-[1.5]" v-model="form.accept2" @change="removeError('accept2')">
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <label for="cloudbutton" class="flex flex-col">
-      <button id="cloudbutton" @click.prevent="openCloudWidget" class="flex border border-zinc-400 bg-zinc-100 rounded-lg h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+    <label for="cloudbutton" class="overflow-hidden flex flex-col rounded border hover:border-amber-400 bg-zinc-100 border-zinc-900">
+      <button id="cloudbutton" @click.prevent="openCloudWidget" class="flex border-zinc-900 h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
       <span class="px-2 text-zinc-500 group-hover:text-zinc-700 ">Optional - Image Upload</span>
-      <div class="bg-amber-500 group-hover:bg-amber-400 rounded-r-lg text-white h-full w-10 flex justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
+      <div class="bg-amber-500 group-hover:bg-amber-400 border-amber-600 text-white h-full w-10 flex  group-hover:border-amber-500 justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </button>    
     </label>
     <p class="text-sm italic text-zinc-800 font-light p-1 -mt-5">You can use the button above to upload photos of your vehicle, proof of ownership and/or ID documents.</p>
     <div class="flex flex-col relative my-4 pt-1">
-      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer" v-model="message" placeholder=" "></textarea>
+      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer rounded-sm" v-model="message" placeholder=" "></textarea>
       <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
@@ -295,7 +295,7 @@
   }
 
   .my-input {
-    @apply h-8 border-b-4 border-t-0 border-l-0 border-r-0 text-zinc-900 bg-zinc-100 px-1 border-amber-500/50
+    @apply h-8 border-b-4 border-t-0 rounded-sm border-l-0 border-r-0 text-zinc-900 bg-zinc-100 px-1 border-amber-500/50
   }
 
   .my-input:focus {
