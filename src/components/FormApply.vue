@@ -1,5 +1,5 @@
 <template>
-  <form ref="appForm" class="grid gap-5 relative p-2 bg-zinc-800 rounded-b border-l border-r border-b border-zinc-700">
+  <form ref="appForm" class="grid gap-5 relative px-3 bg-zinc-800 rounded-b">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6">
       <span class="col-span-full text-sm my-4 uppercase text-amber-400 text-center">Personal Details</span>
       <div class="relative">
@@ -295,7 +295,7 @@
   }
 
   .my-input {
-    @apply h-8 border-b-4 border-t-0 border-l-0 border-r-0 text-zinc-900 bg-zinc-200 px-1 border-amber-500/50
+    @apply h-8 border-b-4 border-t-0 border-l-0 border-r-0 text-zinc-900 bg-zinc-100 px-1 border-amber-500/50
   }
 
   .my-input:focus {
