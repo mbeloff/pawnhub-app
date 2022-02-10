@@ -87,7 +87,7 @@
     </label>
     <p class="text-sm italic text-zinc-800 font-light p-1 -mt-5">You can use the button above to upload photos of your vehicle, proof of ownership and/or ID documents.</p>
     <div class="flex flex-col relative my-4 pt-1">
-      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer rounded-sm" v-model="message" placeholder=" "></textarea>
+      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer rounded-sm border-b-4 border-amber-300" v-model="message" placeholder=" "></textarea>
       <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>

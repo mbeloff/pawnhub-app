@@ -8,7 +8,6 @@
         <a :href="`tel:${common.phoneLand.replaceAll(' ', '')}`" class="text-lg text-amber-500 font-black min-w-max">{{common.phoneLand}}</a>
       <icon-stack class="md:hidden -mr-3" @click="hide = !hide" :icon="'bars'" :size="'fa-2x'" :bg="'text-black/30'"></icon-stack>
       </div>
-      
     </div>
   </div>
   <div class="backdrop-blur bg-zinc-800/80 transition-transform translate-x-0 shadow-lg shadow-black" :class="{'hide': hide}">

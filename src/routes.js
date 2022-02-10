@@ -4,6 +4,7 @@ import NotFound from './views/NotFound.vue'
 import Contact from './views/Contact.vue'
 import FAQ from './views/FAQ.vue'
 import CarPawn from './views/CarPawn.vue'
+import Privacy from './views/Privacy.vue'
 
 
 /** @type {import('vue-router').RouterOptions['routes']} */
@@ -30,6 +31,14 @@ export const routes = [{
       title: 'About'
     },
     component: About,
+  },
+  {
+    name: 'Privacy',
+    path: '/privacy',
+    meta: {
+      title: 'privacy'
+    },
+    component: Privacy,
   },
   {
     name: 'Pawn',
