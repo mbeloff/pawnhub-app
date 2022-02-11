@@ -57,30 +57,30 @@
     <div class="container mx-auto py-20 px-2 flex flex-col gap-4">
       <div class=" mx-auto max-w-prose text-zinc-300">
       <p class="text-zinc-300 font-light text-4xl">Getting a <span class="font-bold italic text-amber-500">cash loan</span> with PawnHub couldn't be easier</p>
-       <div class="py-10">
+       <div class="py-10 font-light">
          <div class="flex">
-        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">1</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none font-bold">1</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Get a quote</p>
          <p class="">Let us know about your vehicle and we'll give you a quick quote and pre-approval. Just give us a call or <button @click="$vfm.show('form')" class="text-amber-500 font-bold text-left">apply online</button>.</p>
         </div>     
       </div>
       <div class="flex">
-        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">2</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none font-bold">2</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Drop in</p>
          <p class="">Bring in your vehicle, proof of ownership and 2 forms of ID (Including 1 photo ID).</p>
         </div>     
       </div>
       <div class="flex">
-        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">3</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none font-bold">3</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Get cash</p>
          <p class="">Get cash on the spot once your loan is approved.</p>
         </div>     
       </div>
       <div class="flex">
-        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none">4</p>
+        <p class="text-8xl text-amber-400 mr-3 w-20 flex-none font-bold">4</p>
         <div>
           <p class="text-amber-200/80 text-xl font-bold">Flexible payment options</p>
          <p class="">We make it easy to make your loan repayments - pay via phone, in-store or online.</p>

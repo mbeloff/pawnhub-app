@@ -14,7 +14,7 @@
     <div class="container mx-auto flex" :class="{ 'md:flex hidden' : hide }">
       <div class="text-zinc-300 flex flex-col w-full md:flex-row text-sm py-2 md:py-0" >
         <router-link class="nav-item" :to="{name: 'Home'}">Home</router-link>
-        <router-link class="nav-item" :to="{name: 'About'}">About</router-link>
+        <!-- <router-link class="nav-item" :to="{name: 'About'}">About</router-link> -->
         <router-link class="nav-item" :to="{name: 'Pawn'}">Cash for Cars</router-link>
         <router-link class="nav-item" :to="{name: 'Faq'}">FAQ's</router-link>        
         <router-link class="nav-item" :to="{name: 'Contact'}">Contact</router-link>

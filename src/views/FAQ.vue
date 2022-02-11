@@ -2,7 +2,7 @@
   <div class="bg-gradient-to-t from-zinc-900 to-zinc-800">
     <div class="container mx-auto py-20 px-2">
       <p class="text-2xl text-amber-500 p-2 mb-5 font-bold">Frequently asked questions <span class="text-zinc-300 font-light">about car pawnbroking</span></p>
-      <div v-for="(item,i) in questions" :key="i" class="cursor-pointer rounded-lg " :class="{ ' shadow-lg ' : tabActive == i }">
+      <div tabindex="1" @keypress="handler($event, i)" v-for="(item,i) in questions" :key="i" class="cursor-pointer rounded-lg " :class="{ ' shadow-lg ' : tabActive == i }">
         <div @click="toggle(i)" class="p-2 font-medium text-amber-500 flex items-center justify-between rounded-t-lg" :class="{ 'bg-gradient-to-tr from-amber-500/90 to-amber-300/90 text-inherit' : tabActive == i }">
           <span>{{ item.title }}</span>
           <i v-show="tabActive != i" class="fal fa-plus"></i>
@@ -45,6 +45,12 @@
           this.tabActive = null
         } else {
           this.tabActive = tab
+        }
+      },
+      handler(e, i) {
+        if (e.code == 'Space' || 'Enter') {
+          e.preventDefault()
+          this.toggle(i)
         }
       }
     },

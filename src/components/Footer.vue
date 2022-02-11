@@ -5,7 +5,7 @@
       <div class="flex flex-col sm:flex-row col-span-1 md:col-span-2">
         <div class="flex flex-col text-sm md:gap-2 self-center sm/w-1/2 px-2 py-10 items-center gap-5 sm:py-0 sm:items-start">
           <router-link class="w-max" :to="{ name: 'Home' }">Home</router-link>
-          <router-link class="w-max" :to="{ name: 'About' }">About</router-link>
+          <!-- <router-link class="w-max" :to="{ name: 'About' }">About</router-link> -->
           <router-link class="w-max" :to="{ name: 'Pawn' }">Pawn your Car</router-link>
           <router-link class="w-max" :to="{ name: 'Faq' }">FAQ</router-link>
           <router-link class="w-max" :to="{ name: 'Contact' }">Contact</router-link>
