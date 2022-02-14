@@ -34,8 +34,8 @@
         </label>
       </fieldset>
       <div class="flex flex-col relative mt-4 pt-1 col-span-2">
-        <textarea ref="message" name="message" id="message" cols="30" rows="3" class=" border-b-4 rounded-sm border-amber-300 p-2 peer" v-model="form.message" placeholder=" " :class="{error: v$.form.message.$errors.length}"></textarea>
-        <label for="message" class="px-1 pointer-events-none absolute left-0 -top-4 text-amber-200 text-xs transition-all peer-placeholder-shown:text-sm font-medium peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-200 peer-focus:text-xs" :class="{'top-2': !form.message}">Message</label>
+        <textarea ref="message" name="message" id="message" cols="30" rows="3" class="focus:border-amber-500 focus:outline-none border bg-zinc-700 text-zinc-200 font-light p-2 peer rounded-sm border-l-0 border-t-0 border-r-0 border-b-4 border-amber-500/50" v-model="form.message" placeholder=" " :class="{error: v$.form.message.$errors.length}"></textarea>
+        <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-amber-200 font-light text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-amber-200/50  peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-200 peer-focus:text-xs" :class="{'top-2': !form.message}">Message</label>
       </div>
       
       <recaptcha-check class="bg-zinc-700" :class="{error: v$.success.$errors.length}" @success="success = true"></recaptcha-check>

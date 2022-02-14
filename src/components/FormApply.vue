@@ -1,6 +1,6 @@
 <template>
   <form ref="appForm" class="grid gap-5 relative px-3 bg-zinc-800">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-6 pt-10">
+    <div class="grid grid-cols-1 sm:grid-cols-1 gap-8 gap-y-6 pt-10">
       <span class="col-span-full text-sm uppercase text-amber-500/80 text-left font-bold">Personal Details</span>
       <div class="relative">
         <input ref="firstName" id="firstName" name="firstName" type="text" v-model="form.firstName" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('firstName') }" placeholder=" " @input="removeError('firstName')" />
@@ -24,10 +24,10 @@
       </div>
       <div class="relative">
         <input ref="postcode" id="postcode" name="postcode" type="text" v-model="form.postcode" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('postcode') }" placeholder=" " @input="removeError('postcode')" />
-        <label for="postcode" class="my-label">Postal Code</label>
+        <label for="postcode" class="my-label">Post Code</label>
       </div>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-8">
       <span class="col-span-full text-sm mt-4 uppercase text-amber-500/80 font-bold">Vehicle Details</span>
       <div class="relative">
         <input ref="make" id="make" name="make" type="text" v-model="form.make" class="my-input w-full peer" :class="{ 'invalid' : isInvalid('make') }" placeholder=" " @input="removeError('make')" />
@@ -79,16 +79,16 @@
         <span class="text-sm italic tracking-tight leading-tight font-light">I understand and accept that my vehicle will be held by PawnHub as security for the term of the loan</span>
       </label>
     </div>
-    <label for="cloudbutton" class="overflow-hidden flex flex-col rounded border hover:border-amber-400 bg-zinc-100 border-zinc-900">
-      <button id="cloudbutton" @click.prevent="openCloudWidget" class="flex border-zinc-900 h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
-      <span class="px-2 text-zinc-500 group-hover:text-zinc-700 ">Optional - Image Upload</span>
+    <label for="cloudbutton" class="overflow-hidden flex flex-col rounded border hover:border-amber-400 bg-zinc-700 border-zinc-700">
+      <button id="cloudbutton" @click.prevent="openCloudWidget" class="flex h-10 items-center justify-between hover:border-amber-400 focus:border-amber-400 group" tabindex="0" role="button" v-on:keyup.enter="openCloudWidget">
+      <span class="px-2 text-zinc-500">Optional - Image Upload</span>
       <div class="bg-amber-500 group-hover:bg-amber-400 border-amber-600 text-white h-full w-10 flex  group-hover:border-amber-500 justify-center items-center text-lg"><i class="fal fa-cloud-upload"></i></div>
     </button>    
     </label>
     <p class="text-sm italic text-zinc-800 font-light p-1 -mt-5">You can use the button above to upload photos of your vehicle, proof of ownership and/or ID documents.</p>
     <div class="flex flex-col relative my-4 pt-1">
-      <textarea name="message" id="message" cols="30" rows="3" class="border p-2 peer rounded-sm border-b-4 border-amber-300" v-model="message" placeholder=" "></textarea>
-      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400" :class="{'top-2': !message}">Message</label>
+      <textarea name="message" id="message" cols="30" rows="3" class="my-input peer p-2" v-model="message" placeholder=" "></textarea>
+      <label for="message" class="px-1 pointer-events-none absolute left-0 -top-3.5 text-amber-200 font-light text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-amber-200/50  peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-amber-400 peer-focus:text-xs" :class="{'top-2': !message}">Message</label>
     </div>
     <p v-show="errors.length" class="text-red-500 italic font-serif text-sm">*Please complete all required information</p>
     <button @click.prevent="validate()" class="bg-amber-500 shadow-lg shadow-amber-500/30 py-2 mb-5 transition duration-500 hover:-translate-y-1 ease-out text-white hover:bg-amber-400" :class="{ 'pointer-events-none opacity-50' : loading }">SUBMIT FOR APPROVAL</button>
@@ -295,7 +295,15 @@
   }
 
   .my-input {
-    @apply h-8 border-b-4 border-t-0 rounded-sm border-l-0 border-r-0 text-zinc-900 bg-zinc-100 px-1 border-amber-500/50
+    @apply py-1.5 border-b-4 border-t-0 rounded-sm border-l-0 border-r-0 text-zinc-100 font-light bg-zinc-700 px-1 border-amber-500/50
+  }
+
+  select.my-input {
+    @apply text-sm h-10
+  }
+  
+  textarea.my-input {
+    @apply h-auto
   }
 
   .my-input:focus {
@@ -307,10 +315,10 @@
   }
 
   .my-label {
-    @apply px-1 pointer-events-none absolute left-0 -top-4 text-zinc-500 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-zinc-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-400 peer-focus:text-xs
+    @apply px-1 pointer-events-none absolute left-0 -top-4  font-light text-amber-200 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-amber-200/50 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-amber-400 peer-focus:text-xs
   }
 
   .my-label.label-initial {
-    @apply text-zinc-500 top-2 text-sm peer-focus:text-xs
+    @apply text-amber-200/50 font-light top-2 text-sm peer-focus:text-xs
   }
 </style>
