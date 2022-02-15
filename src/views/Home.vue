@@ -56,8 +56,8 @@
   <div class="bg-zinc-900">
     <div class="container mx-auto py-20 px-2 flex flex-col gap-4">
       <div class=" mx-auto max-w-prose text-zinc-300">
-      <p class="text-zinc-300 font-light text-4xl">Getting a <span class="font-bold italic text-amber-500">cash loan</span> with PawnHub couldn't be easier</p>
-       <div class="py-10 font-light">
+      <p class="text-zinc-300 font-light text-4xl">Getting a <span class="font-bold italic text-amber-500">cash loan</span> with PawnHub is quick and easy</p>
+       <div class="py-10 font-light grid gap-5">
          <div class="flex">
         <p class="text-8xl text-amber-400 mr-3 w-20 flex-none font-bold">1</p>
         <div>
